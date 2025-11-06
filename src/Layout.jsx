@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
@@ -40,12 +39,22 @@ export default function Layout({ children, currentPageName }) {
     setIsMobileMenuOpen(false);
   };
 
-  const handleHomeClick = (e) => {
-    if (e) e.preventDefault();
-    if (currentPageName === "Home") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+  const handleNavigation = (page, section) => {
+    if (currentPageName === page && section) {
+      scrollToSection(section);
+    } else if (section) {
+      navigate(createPageUrl(page));
+      setTimeout(() => {
+        const element = document.getElementById(section);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 300);
     } else {
-      window.location.href = createPageUrl("Home");
+      navigate(createPageUrl(page));
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100);
     }
   };
 
@@ -78,31 +87,25 @@ export default function Layout({ children, currentPageName }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Right Logo - מכללה */}
-            <Link to={createPageUrl("Home")} className="flex items-center cursor-pointer">
+            <button
+              onClick={() => handleNavigation("Home")}
+              className="flex items-center cursor-pointer"
+            >
               <img
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/5d0ed06d1_collegeLogoText.png"
                 alt="לוגו המכללה"
                 className="h-16 w-auto"
               />
-            </Link>
+            </button>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
-              {isHomePage ? (
-                <button
-                  onClick={() => scrollToSection("home")}
-                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-                >
-                  עמוד הבית
-                </button>
-              ) : (
-                <Link
-                  to={createPageUrl("Home")}
-                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-                >
-                  עמוד הבית
-                </Link>
-              )}
+              <button
+                onClick={() => handleNavigation("Home", isHomePage ? "home" : null)}
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              >
+                עמוד הבית
+              </button>
 
               <DropdownMenu>
                 <DropdownMenuTrigger className="flex items-center gap-1 text-gray-700 hover:text-blue-600 font-medium transition-colors">
@@ -127,44 +130,26 @@ export default function Layout({ children, currentPageName }) {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              {isHomePage ? (
-                <>
-                  <button
-                    onClick={() => scrollToSection("process")}
-                    className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-                  >
-                    תהליך עבודה
-                  </button>
-                  <button
-                    onClick={() => scrollToSection("gallery")}
-                    className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-                  >
-                    גלריית עבודות
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link
-                    to={createPageUrl("Home")}
-                    className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-                  >
-                    תהליך עבודה
-                  </Link>
-                  <Link
-                    to={createPageUrl("Home")}
-                    className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-                  >
-                    גלריית עבודות
-                  </Link>
-                </>
-              )}
+              <button
+                onClick={() => handleNavigation("Home", "process")}
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              >
+                תהליך עבודה
+              </button>
 
-              <Link
-                to={createPageUrl("Contact")}
+              <button
+                onClick={() => handleNavigation("Home", "gallery")}
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+              >
+                גלריית עבודות
+              </button>
+
+              <button
+                onClick={() => handleNavigation("Contact")}
                 className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
               >
                 יצירת קשר
-              </Link>
+              </button>
             </div>
 
             {/* Left Logo - הוצאה לאור */}
@@ -194,22 +179,15 @@ export default function Layout({ children, currentPageName }) {
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-white border-t shadow-lg">
             <div className="px-4 py-4 space-y-3">
-              {isHomePage ? (
-                <button
-                  onClick={() => scrollToSection("home")}
-                  className="block w-full text-right px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
-                >
-                  עמוד הבית
-                </button>
-              ) : (
-                <Link
-                  to={createPageUrl("Home")}
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  עמוד הבית
-                </Link>
-              )}
+              <button
+                onClick={() => {
+                  handleNavigation("Home", isHomePage ? "home" : null);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="block w-full text-right px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
+              >
+                עמוד הבית
+              </button>
 
               <div className="px-4 py-2">
                 <p className="text-sm font-semibold text-gray-500 mb-2">
@@ -233,47 +211,35 @@ export default function Layout({ children, currentPageName }) {
                 </div>
               </div>
 
-              {isHomePage ? (
-                <>
-                  <button
-                    onClick={() => scrollToSection("process")}
-                    className="block w-full text-right px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
-                  >
-                    תהליך עבודה
-                  </button>
-                  <button
-                    onClick={() => scrollToSection("gallery")}
-                    className="block w-full text-right px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
-                  >
-                    גלריית עבודות
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link
-                    to={createPageUrl("Home")}
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    תהליך עבודה
-                  </Link>
-                  <Link
-                    to={createPageUrl("Home")}
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    גלריית עבודות
-                  </Link>
-                </>
-              )}
+              <button
+                onClick={() => {
+                  handleNavigation("Home", "process");
+                  setIsMobileMenuOpen(false);
+                }}
+                className="block w-full text-right px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
+              >
+                תהליך עבודה
+              </button>
 
-              <Link
-                to={createPageUrl("Contact")}
-                className="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
-                onClick={() => setIsMobileMenuOpen(false)}
+              <button
+                onClick={() => {
+                  handleNavigation("Home", "gallery");
+                  setIsMobileMenuOpen(false);
+                }}
+                className="block w-full text-right px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
+              >
+                גלריית עבודות
+              </button>
+
+              <button
+                onClick={() => {
+                  handleNavigation("Contact");
+                  setIsMobileMenuOpen(false);
+                }}
+                className="block w-full text-right px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
               >
                 יצירת קשר
-              </Link>
+              </button>
             </div>
           </div>
         )}

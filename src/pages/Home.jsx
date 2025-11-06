@@ -1,6 +1,5 @@
-
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import CategoryCard from "../components/CategoryCard";
 import WorkflowProcess from "../components/WorkflowProcess";
 import { BookOpen, Book, Award, Sticker, Printer } from "lucide-react";
@@ -58,12 +57,25 @@ const galleryImages = [
 ];
 
 export default function Home() {
+  const [scrollY, setScrollY] = useState(0);
+  const { scrollYProgress } = useScroll();
+  
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
+
   return (
     <div className="overflow-x-hidden">
       {/* Hero Section */}
-      <section
+      <motion.section
         id="home"
         className="relative min-h-[50vh] flex items-center justify-center pt-32 pb-20 bg-white"
+        style={{ opacity: heroOpacity, scale: heroScale }}
       >
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -89,16 +101,16 @@ export default function Home() {
             </motion.p>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Categories Section */}
       <section id="categories" className="py-20 bg-[#FAFAF9]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
             <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
@@ -121,26 +133,54 @@ export default function Home() {
       <section id="vision" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
+            <motion.h2
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-5xl md:text-6xl font-bold text-gray-900 mb-8"
+            >
               חזון הוצל"א פקע"ר
-            </h2>
-            <div className="max-w-4xl mx-auto space-y-6 text-lg text-gray-700 leading-relaxed">
-              <p>
+            </motion.h2>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="max-w-4xl mx-auto space-y-6 text-lg text-gray-700 leading-relaxed"
+            >
+              <motion.p
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
                 אם אתם מחפשים פתרונות הדפסה איכותיים- רולאפים, סובלימציה, ספרים או חוברות- אנחנו כאן כדי להפוך את הרעיונות שלכם למציאות.
-              </p>
-              <p>
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
                 בית הדפוס וההוצאה לאור פקע"ר מציע לכם שירות מקצועי, טכנולוגיות הדפסה מתקדמות וצוות מנוסה שמבטיח איכות ללא פשרות. אנו מקפידים על דיוק, חדשנות וליווי אישי לכל לקוח.
-              </p>
-              <p className="font-semibold text-gray-900">
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                className="font-semibold text-gray-900"
+              >
                 שמחים להציג לפניכם את הקטלוג החדש של הוצאה לאור פיקוד העורף- מוזמנים להתרשם מהמגוון הרחב שלנו!
-              </p>
-            </div>
+              </motion.p>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -149,10 +189,10 @@ export default function Home() {
       <section id="process" className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
             <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
@@ -168,10 +208,10 @@ export default function Home() {
       <section id="gallery" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
             <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
@@ -186,10 +226,11 @@ export default function Home() {
             {galleryImages.map((image, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                initial={{ opacity: 0, scale: 0.8, rotateY: -20 }}
+                whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05, rotateZ: 2 }}
                 className="relative group overflow-hidden rounded-xl shadow-lg aspect-square"
               >
                 <img
@@ -205,7 +246,14 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12" style={{ background: 'rgb(0, 88, 131)' }}>
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.8 }}
+        className="py-12"
+        style={{ background: 'rgb(0, 88, 131)' }}
+      >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -219,15 +267,17 @@ export default function Home() {
             <p className="text-lg text-white/90 mb-6">
               צרו איתנו קשר עוד היום ונשמח לסייע לכם בכל פרויקט
             </p>
-            <a
+            <motion.a
               href={`/Contact`}
-              className="inline-block bg-white text-[rgb(0,88,131)] px-8 py-3 rounded-full font-bold text-base hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-xl"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block bg-white text-[rgb(0,88,131)] px-8 py-3 rounded-full font-bold text-base hover:bg-gray-100 transform transition-all duration-200 shadow-xl"
             >
               יצירת קשר
-            </a>
+            </motion.a>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 }
