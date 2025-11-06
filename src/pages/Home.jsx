@@ -88,39 +88,8 @@ export default function Home() {
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-screen flex items-center justify-center pt-20"
-        style={{
-          background: "linear-gradient(135deg, #1E3A8A 0%, #3B82F6 50%, #60A5FA 100%)",
-        }}
+        className="relative min-h-[50vh] flex items-center justify-center pt-32 pb-20 bg-white"
       >
-        {/* Animated background shapes */}
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 90, 0],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            className="absolute top-20 left-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"
-          />
-          <motion.div
-            animate={{
-              scale: [1, 1.3, 1],
-              rotate: [0, -90, 0],
-            }}
-            transition={{
-              duration: 25,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            className="absolute bottom-20 left-1/3 w-96 h-96 bg-white/5 rounded-full blur-3xl"
-          />
-        </div>
-
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -128,51 +97,23 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <motion.h1
-              className="text-5xl md:text-7xl font-bold text-white mb-6"
+              className="text-6xl md:text-8xl font-bold text-gray-900 mb-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
+              style={{ fontFamily: 'Karantina, cursive' }}
             >
               הוצאה לאור פיקוד העורף
             </motion.h1>
             <motion.p
-              className="text-2xl md:text-3xl text-white/90 mb-12 font-light"
+              className="text-xl md:text-2xl text-gray-600 mb-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
+              style={{ fontFamily: 'Assistant, sans-serif' }}
             >
               בית הדפוס וההוצאה לאור בשבילך
             </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <button
-                onClick={() => document.getElementById("categories").scrollIntoView({ behavior: "smooth" })}
-                className="bg-white text-blue-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-xl"
-              >
-                למוצרים שלנו
-              </button>
-              <button
-                onClick={() => document.getElementById("vision").scrollIntoView({ behavior: "smooth" })}
-                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transform hover:scale-105 transition-all duration-200"
-              >
-                קרא עוד
-              </button>
-            </motion.div>
-          </motion.div>
-
-          {/* Scroll indicator */}
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="absolute bottom-8 right-1/2 transform translate-x-1/2"
-          >
-            <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center pt-2">
-              <div className="w-1.5 h-3 bg-white/50 rounded-full" />
-            </div>
           </motion.div>
         </div>
       </section>
@@ -187,7 +128,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
               המוצרים שלנו
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -214,12 +155,12 @@ export default function Home() {
             className="grid md:grid-cols-2 gap-12 items-center"
           >
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
                 החזון שלנו
               </h2>
               <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  בית הדפוס וההוצאה לאור של פיקוד העורף מספק שירותי הדפסה והוצאה לאור מקצועיים ואיכוtiים.
+                  בית הדפוס וההוצאה לאור של פיקוד העורף מספק שירותי הדפסה והוצאה לאור מקצועיים ואיכותיים.
                 </p>
                 <p>
                   אנו מתמחים במתן פתרונות הדפסה מותאמים אישית, תוך שמירה על סטנדרטים גבוהים של איכות ומקצועיות.
@@ -253,7 +194,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
               תהליך העבודה
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -272,13 +213,13 @@ export default function Home() {
                 className="relative"
               >
                 <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-                  <div className="text-6xl font-bold text-blue-100 mb-4">
+                  <div className="text-6xl font-bold text-blue-100 mb-4" style={{ fontFamily: 'Karantina, cursive' }}>
                     {step.number}
                   </div>
                   <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
                     <step.icon className="w-7 h-7 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
                     {step.title}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
@@ -304,7 +245,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
               גלריית עבודות
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -343,7 +284,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
               מוכנים להתחיל?
             </h2>
             <p className="text-xl text-white/90 mb-8">

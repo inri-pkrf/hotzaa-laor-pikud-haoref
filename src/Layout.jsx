@@ -43,11 +43,16 @@ export default function Layout({ children, currentPageName }) {
   return (
     <div className="min-h-screen bg-[#FAFAF9]" dir="rtl">
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&family=Assistant:wght@200;300;400;500;600;700;800&display=swap');
+        
         * {
           direction: rtl;
         }
         body {
-          font-family: 'Heebo', 'Rubik', sans-serif;
+          font-family: 'Assistant', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+          font-family: 'Karantina', cursive;
         }
       `}</style>
 
@@ -56,19 +61,19 @@ export default function Layout({ children, currentPageName }) {
         className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
           isScrolled
             ? "bg-white/95 backdrop-blur-md shadow-lg"
-            : "bg-transparent"
+            : "bg-white/80 backdrop-blur-sm"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <Link to={createPageUrl("Home")} className="flex items-center">
+            {/* Left Logo - הוצאה לאור */}
+            <div className="flex items-center">
               <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/5d0ed06d1_collegeLogoText.png"
-                alt="לוגו המכללה"
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/9d0f053f3_.png"
+                alt="לוגו הוצאה לאור"
                 className="h-16 w-auto"
               />
-            </Link>
+            </div>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
@@ -150,6 +155,15 @@ export default function Layout({ children, currentPageName }) {
                 יצירת קשר
               </Link>
             </div>
+
+            {/* Right Logo - מכללה */}
+            <Link to={createPageUrl("Home")} className="flex items-center">
+              <img
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/5d0ed06d1_collegeLogoText.png"
+                alt="לוגו המכללה"
+                className="h-16 w-auto"
+              />
+            </Link>
 
             {/* Mobile menu button */}
             <button
@@ -262,11 +276,11 @@ export default function Layout({ children, currentPageName }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-right">
             <div>
-              <h3 className="text-xl font-bold mb-4">הוצאה לאור פיקוד העורף</h3>
+              <h3 className="text-2xl font-bold mb-4">הוצאה לאור פיקוד העורף</h3>
               <p className="text-gray-300">בית הדפוס וההוצאה לאור בשבילך</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">קישורים מהירים</h4>
+              <h4 className="font-semibold mb-4 text-xl">קישורים מהירים</h4>
               <div className="space-y-2">
                 <Link
                   to={createPageUrl("Home")}
