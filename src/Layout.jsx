@@ -117,7 +117,7 @@ export default function Layout({ children, currentPageName }) {
                   {categories.map((category) => (
                     <DropdownMenuItem key={category.id} asChild>
                       <Link
-                        to={createPageUrl("Category", `?id=${category.id}`)}
+                        to={`${createPageUrl("Category")}?id=${category.id}`}
                         className="cursor-pointer"
                       >
                         <div
@@ -195,7 +195,7 @@ export default function Layout({ children, currentPageName }) {
                   {categories.map((category) => (
                     <Link
                       key={category.id}
-                      to={createPageUrl("Category", `?id=${category.id}`)}
+                      to={`${createPageUrl("Category")}?id=${category.id}`}
                       className="flex items-center gap-2 text-gray-700 py-1"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >

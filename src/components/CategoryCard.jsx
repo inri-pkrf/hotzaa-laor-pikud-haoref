@@ -13,7 +13,7 @@ export default function CategoryCard({ category, index }) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group"
     >
-      <Link to={createPageUrl("Category", `?id=${category.id}`)}>
+      <Link to={`${createPageUrl("Category")}?id=${category.id}`}>
         <div
           className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105"
           style={{ minHeight: "320px" }}
