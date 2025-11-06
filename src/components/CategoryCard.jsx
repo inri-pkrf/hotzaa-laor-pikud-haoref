@@ -25,13 +25,6 @@ export default function CategoryCard({ category, index }) {
               alt={category.name}
               className="w-full h-full object-cover"
             />
-            <div 
-              className="absolute inset-0"
-              style={{
-                background: `linear-gradient(135deg, ${category.color}dd, ${category.color})`,
-                mixBlendMode: "multiply"
-              }}
-            />
           </div>
 
           {/* Content */}
