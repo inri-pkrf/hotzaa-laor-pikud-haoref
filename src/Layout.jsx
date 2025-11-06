@@ -12,7 +12,7 @@ import {
 
 const categories = [
   { id: 1, name: "ספרים וחוברות", color: "rgb(39, 64, 111)" },
-  { id: 2, name: "מחברות ופנקסים", color: "rgb(241, 149, 44)" },
+  { id: 2, name: "מחברות ופנקסים", color: "rgb(255, 180, 80)" },
   { id: 3, name: "תעודות וברכות", color: "rgb(98, 100, 100)" },
   { id: 4, name: "מדבקות ורולאפ", color: "rgb(153, 24, 99)" },
   { id: 5, name: "הדפסה על מוצרים", color: "rgb(67, 187, 144)" },

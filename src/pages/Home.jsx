@@ -18,7 +18,7 @@ const categories = [
     id: 2,
     name: "מחברות ופנקסים",
     description: "מחברות ופנקסים מותאמים אישית לכל צורך - מעוצבים ומודפסים בקפידה",
-    color: "rgb(241, 149, 44)",
+    color: "rgb(255, 180, 80)", // Changed color as per instruction
     icon: Book,
     image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/b4431795d_Screenshot2025-11-06125625.png"
   },
@@ -92,14 +92,16 @@ export default function Home() {
             >
               הוצאה לאור פיקוד העורף
             </motion.h1>
-            <motion.p
-              className="text-xl md:text-2xl text-gray-600 mb-4"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              בית הדפוס וההוצאה לאור בשבילך
-            </motion.p>
+            <div className="inline-block px-12 py-4 rounded-3xl" style={{ backgroundColor: 'rgb(255, 180, 80)' }}>
+              <motion.p
+                className="text-xl md:text-2xl text-white font-semibold"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                בית הדפוס וההוצאה לאור בשבילך
+              </motion.p>
+            </div>
           </motion.div>
         </div>
       </motion.section>
@@ -114,11 +116,9 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <div className="inline-block px-12 py-6 rounded-3xl mb-6" style={{ backgroundColor: 'rgb(241, 149, 44)' }}>
-              <h2 className="text-5xl md:text-6xl font-bold text-white">
-                המוצרים שלנו
-              </h2>
-            </div>
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+              המוצרים שלנו
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               מגוון רחב של פתרונות הדפסה והוצאה לאור מקצועיים
             </p>
