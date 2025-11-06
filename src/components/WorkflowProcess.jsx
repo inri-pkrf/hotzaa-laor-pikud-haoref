@@ -36,7 +36,7 @@ const steps = [
 export default function WorkflowProcess() {
   return (
     <div className="max-w-5xl mx-auto">
-      <div className="grid md:grid-cols-2 gap-8 relative">
+      <div className="grid md:grid-cols-2 gap-12 relative">
         {steps.map((step, index) => (
           <React.Fragment key={index}>
             <motion.div
@@ -99,58 +99,58 @@ export default function WorkflowProcess() {
                   style={{ backgroundColor: step.color }}
                 />
               </div>
-
-              {/* Horizontal Arrow - Between 1->2 */}
-              {index === 0 && (
-                <motion.div
-                  className="hidden md:block absolute -left-4 top-1/2 transform -translate-y-1/2 z-20"
-                  animate={{ x: [0, 10, 0] }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: step.color }}>
-                    <ArrowLeft className="w-6 h-6 text-white" />
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Vertical Arrow - Between 2->3 */}
-              {index === 1 && (
-                <motion.div
-                  className="hidden md:block absolute left-1/2 -bottom-4 transform -translate-x-1/2 z-20"
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: step.color }}>
-                    <ArrowDown className="w-6 h-6 text-white" />
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Horizontal Arrow - Between 3->4 */}
-              {index === 2 && (
-                <motion.div
-                  className="hidden md:block absolute -left-4 top-1/2 transform -translate-y-1/2 z-20"
-                  animate={{ x: [0, 10, 0] }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: step.color }}>
-                    <ArrowLeft className="w-6 h-6 text-white" />
-                  </div>
-                </motion.div>
-              )}
             </motion.div>
+
+            {/* Arrow from 1 to 2 */}
+            {index === 0 && (
+              <motion.div
+                className="hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-6 z-30 items-center justify-center"
+                animate={{ x: [0, -8, 0] }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-2xl" style={{ backgroundColor: step.color }}>
+                  <ArrowLeft className="w-7 h-7 text-white" />
+                </div>
+              </motion.div>
+            )}
+
+            {/* Arrow from 2 to 3 */}
+            {index === 1 && (
+              <motion.div
+                className="hidden md:flex absolute right-0 -bottom-6 transform translate-y-6 z-30 items-center justify-center"
+                animate={{ y: [0, 8, 0] }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-2xl" style={{ backgroundColor: step.color }}>
+                  <ArrowDown className="w-7 h-7 text-white" />
+                </div>
+              </motion.div>
+            )}
+
+            {/* Arrow from 3 to 4 */}
+            {index === 2 && (
+              <motion.div
+                className="hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-6 z-30 items-center justify-center"
+                animate={{ x: [0, -8, 0] }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-2xl" style={{ backgroundColor: step.color }}>
+                  <ArrowLeft className="w-7 h-7 text-white" />
+                </div>
+              </motion.div>
+            )}
           </React.Fragment>
         ))}
       </div>
