@@ -41,10 +41,11 @@ export default function Layout({ children, currentPageName }) {
 
   const handleHomeClick = (e) => {
     e.preventDefault();
-    navigate(createPageUrl("Home"));
-    setTimeout(() => {
+    if (currentPageName === "Home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 100);
+    } else {
+      navigate(createPageUrl("Home"));
+    }
   };
 
   const isHomePage = currentPageName === "Home";
@@ -76,13 +77,13 @@ export default function Layout({ children, currentPageName }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Right Logo - מכללה */}
-            <Link to={createPageUrl("Home")} className="flex items-center" onClick={handleHomeClick}>
+            <a href={createPageUrl("Home")} className="flex items-center cursor-pointer" onClick={handleHomeClick}>
               <img
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/5d0ed06d1_collegeLogoText.png"
                 alt="לוגו המכללה"
                 className="h-16 w-auto"
               />
-            </Link>
+            </a>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
@@ -160,7 +161,7 @@ export default function Layout({ children, currentPageName }) {
 
               <Link
                 to={createPageUrl("Contact")}
-                className="bg-gradient-to-l from-blue-600 to-blue-700 text-white px-6 py-2.5 rounded-full font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
               >
                 יצירת קשר
               </Link>
@@ -271,7 +272,7 @@ export default function Layout({ children, currentPageName }) {
 
               <Link
                 to={createPageUrl("Contact")}
-                className="block mx-4 text-center bg-gradient-to-l from-blue-600 to-blue-700 text-white px-6 py-3 rounded-full font-medium"
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 יצירת קשר

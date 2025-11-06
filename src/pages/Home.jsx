@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CategoryCard from "../components/CategoryCard";
+import WorkflowProcess from "../components/WorkflowProcess";
 import { BookOpen, Book, Award, Sticker, Printer } from "lucide-react";
 
 const categories = [
@@ -154,23 +155,11 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
-              נוהל חומת עבודה
+              נוהל הזמנת עבודה
             </h2>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto"
-          >
-            <img
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/d3633347c_Screenshot2025-11-06122040.png"
-              alt="נוהל חומת עבודה"
-              className="w-full h-auto rounded-2xl shadow-2xl"
-            />
-          </motion.div>
+          <WorkflowProcess />
         </div>
       </section>
 

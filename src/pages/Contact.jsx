@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -14,20 +14,15 @@ export default function Contact() {
     message: "",
   });
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    // כאן תוסיף לוגיקה לשליחת הטופס
   };
 
   return (
     <div className="min-h-screen pt-20">
       {/* Hero */}
-      <section className="bg-gradient-to-l from-blue-600 to-blue-700 py-20">
+      <section style={{ background: 'rgb(0, 88, 131)' }} className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -122,7 +117,8 @@ export default function Contact() {
                     </div>
                     <Button
                       type="submit"
-                      className="w-full bg-gradient-to-l from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-lg py-6"
+                      style={{ background: 'rgb(0, 88, 131)' }}
+                      className="w-full hover:opacity-90 text-lg py-6"
                     >
                       <Send className="w-5 h-5 ml-2" />
                       שלח הודעה
@@ -152,8 +148,8 @@ export default function Contact() {
                 <Card className="border-2 border-blue-100 hover:border-blue-300 transition-colors">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Mail className="w-6 h-6 text-blue-600" />
+                      <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(0, 88, 131, 0.1)' }}>
+                        <Mail className="w-6 h-6" style={{ color: 'rgb(0, 88, 131)' }} />
                       </div>
                       <div>
                         <h3 className="font-bold text-gray-900 mb-1">אימייל</h3>
@@ -196,7 +192,7 @@ export default function Contact() {
                 </Card>
               </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8">
+              <div className="rounded-2xl p-8" style={{ background: 'rgba(0, 88, 131, 0.1)' }}>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                   שעות פעילות
                 </h3>
