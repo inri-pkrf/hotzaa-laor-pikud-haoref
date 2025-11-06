@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
@@ -40,11 +41,11 @@ export default function Layout({ children, currentPageName }) {
   };
 
   const handleHomeClick = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     if (currentPageName === "Home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      navigate(createPageUrl("Home"));
+      window.location.href = createPageUrl("Home");
     }
   };
 
@@ -77,13 +78,13 @@ export default function Layout({ children, currentPageName }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Right Logo - מכללה */}
-            <a href={createPageUrl("Home")} className="flex items-center cursor-pointer" onClick={handleHomeClick}>
+            <Link to={createPageUrl("Home")} className="flex items-center cursor-pointer">
               <img
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/5d0ed06d1_collegeLogoText.png"
                 alt="לוגו המכללה"
                 className="h-16 w-auto"
               />
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
@@ -95,13 +96,12 @@ export default function Layout({ children, currentPageName }) {
                   עמוד הבית
                 </button>
               ) : (
-                <a
-                  href={createPageUrl("Home")}
-                  onClick={handleHomeClick}
-                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors cursor-pointer"
+                <Link
+                  to={createPageUrl("Home")}
+                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
                 >
                   עמוד הבית
-                </a>
+                </Link>
               )}
 
               <DropdownMenu>
@@ -145,13 +145,13 @@ export default function Layout({ children, currentPageName }) {
               ) : (
                 <>
                   <Link
-                    to={createPageUrl("Home") + "#process"}
+                    to={createPageUrl("Home")}
                     className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
                   >
                     תהליך עבודה
                   </Link>
                   <Link
-                    to={createPageUrl("Home") + "#gallery"}
+                    to={createPageUrl("Home")}
                     className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
                   >
                     גלריית עבודות
@@ -202,16 +202,13 @@ export default function Layout({ children, currentPageName }) {
                   עמוד הבית
                 </button>
               ) : (
-                <a
-                  href={createPageUrl("Home")}
-                  onClick={(e) => {
-                    handleHomeClick(e);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium cursor-pointer"
+                <Link
+                  to={createPageUrl("Home")}
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   עמוד הבית
-                </a>
+                </Link>
               )}
 
               <div className="px-4 py-2">
@@ -254,14 +251,14 @@ export default function Layout({ children, currentPageName }) {
               ) : (
                 <>
                   <Link
-                    to={createPageUrl("Home") + "#process"}
+                    to={createPageUrl("Home")}
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     תהליך עבודה
                   </Link>
                   <Link
-                    to={createPageUrl("Home") + "#gallery"}
+                    to={createPageUrl("Home")}
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
