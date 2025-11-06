@@ -85,7 +85,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <motion.h1
-              className="text-6xl md:text-8xl font-bold text-gray-900 mb-4"
+              className="text-6xl md:text-8xl font-bold text-white-900 mb-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
