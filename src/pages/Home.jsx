@@ -46,33 +46,6 @@ const categories = [
   },
 ];
 
-const processSteps = [
-  {
-    number: "01",
-    title: "יצירת קשר",
-    description: "פנייה ראשונית ושיחת ייעוץ להבנת הצרכים",
-    icon: Users,
-  },
-  {
-    number: "02",
-    title: "עיצוב והצעת מחיר",
-    description: "הכנת עיצוב ראשוני והצעת מחיר מפורטת",
-    icon: Sparkles,
-  },
-  {
-    number: "03",
-    title: "אישור והפקה",
-    description: "אישור סופי והתחלת תהליך ההדפסה",
-    icon: CheckCircle,
-  },
-  {
-    number: "04",
-    title: "אספקה",
-    description: "משלוח המוצר המוגמר ביעד",
-    icon: Clock,
-  },
-];
-
 const galleryImages = [
   "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&q=80",
   "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&q=80",
@@ -101,7 +74,6 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              style={{ fontFamily: 'Karantina, cursive' }}
             >
               הוצאה לאור פיקוד העורף
             </motion.h1>
@@ -110,7 +82,6 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              style={{ fontFamily: 'Assistant, sans-serif' }}
             >
               בית הדפוס וההוצאה לאור בשבילך
             </motion.p>
@@ -152,33 +123,21 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid md:grid-cols-2 gap-12 items-center"
+            className="text-center mb-12"
           >
-            <div>
-              <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-                החזון שלנו
-              </h2>
-              <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
-                <p>
-                  בית הדפוס וההוצאה לאור של פיקוד העורף מספק שירותי הדפסה והוצאה לאור מקצועיים ואיכותיים.
-                </p>
-                <p>
-                  אנו מתמחים במתן פתרונות הדפסה מותאמים אישית, תוך שמירה על סטנדרטים גבוהים של איכות ומקצועיות.
-                </p>
-                <p>
-                  הצוות המנוסה שלנו מלווה את הלקוח בכל שלב, מהרעיון הראשוני ועד למוצר המוגמר.
-                </p>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/070469535_.png"
-                  alt="חזון"
-                  className="w-full h-96 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent" />
-              </div>
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
+              חזון הוצל"א פקע"ר
+            </h2>
+            <div className="max-w-4xl mx-auto space-y-6 text-lg text-gray-700 leading-relaxed">
+              <p>
+                אם אתם מחפשים פתרונות הדפסה איכותיים- רולאפים, סובלימציה, ספרים או חוברות- אנחנו כאן כדי להפוך את הרעיונות שלכם למציאות.
+              </p>
+              <p>
+                בית הדפוס וההוצאה לאור פקע"ר מציע לכם שירות מקצועי, טכנולוגיות הדפסה מתקדמות וצוות מנוסה שמבטיח איכות ללא פשרות. אנו מקפידים על דיוק, חדשנות וליווי אישי לכל לקוח.
+              </p>
+              <p className="font-semibold text-gray-900">
+                שמחים להציג לפניכם את הקטלוג החדש של הוצאה לאור פיקוד העורף- מוזמנים להתרשם מהמגוון הרחב שלנו!
+              </p>
             </div>
           </motion.div>
         </div>
@@ -194,44 +153,24 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
-              תהליך העבודה
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
+              נוהל חומת עבודה
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              ארבעה שלבים פשוטים להפקת המוצר המושלם
-            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {processSteps.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative"
-              >
-                <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-                  <div className="text-6xl font-bold text-blue-100 mb-4" style={{ fontFamily: 'Karantina, cursive' }}>
-                    {step.number}
-                  </div>
-                  <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                    <step.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-                {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 w-8 h-0.5 bg-gradient-to-l from-blue-300 to-transparent" />
-                )}
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl mx-auto"
+          >
+            <img
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/d3633347c_Screenshot2025-11-06122040.png"
+              alt="נוהל חומת עבודה"
+              className="w-full h-auto rounded-2xl shadow-2xl"
+            />
+          </motion.div>
         </div>
       </section>
 
