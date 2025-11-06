@@ -31,38 +31,38 @@ const steps = [
 
 export default function WorkflowProcess() {
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="space-y-8">
+    <div className="max-w-3xl mx-auto">
+      <div className="space-y-4">
         {steps.map((step, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
           >
             {/* Step Card */}
             <div className="relative">
               <div
-                className="bg-white rounded-2xl p-8 shadow-xl border-2 transition-all duration-300 hover:shadow-2xl"
+                className="bg-white rounded-xl p-6 shadow-lg border-2 transition-all duration-300 hover:shadow-xl"
                 style={{ borderColor: step.color }}
               >
-                <div className="flex items-start gap-6">
+                <div className="flex items-start gap-4">
                   {/* Icon */}
                   <div
-                    className="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg"
+                    className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md"
                     style={{ backgroundColor: step.color }}
                   >
-                    <step.icon className="w-8 h-8 text-white" />
+                    <step.icon className="w-6 h-6 text-white" />
                   </div>
 
                   {/* Content */}
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">
                       {step.title}
                     </h3>
                     {step.subtitle && (
-                      <p className="text-lg text-gray-600">{step.subtitle}</p>
+                      <p className="text-base text-gray-600">{step.subtitle}</p>
                     )}
                   </div>
                 </div>
@@ -71,8 +71,8 @@ export default function WorkflowProcess() {
               {/* Arrow */}
               {index < steps.length - 1 && (
                 <motion.div
-                  className="flex justify-center my-4"
-                  animate={{ y: [0, 10, 0] }}
+                  className="flex justify-center my-2"
+                  animate={{ y: [0, 8, 0] }}
                   transition={{
                     duration: 1.5,
                     repeat: Infinity,
@@ -80,7 +80,7 @@ export default function WorkflowProcess() {
                   }}
                 >
                   <ArrowDown
-                    className="w-8 h-8"
+                    className="w-6 h-6"
                     style={{ color: step.color }}
                   />
                 </motion.div>

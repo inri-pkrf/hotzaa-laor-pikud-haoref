@@ -1,3 +1,4 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import CategoryCard from "../components/CategoryCard";
@@ -145,16 +146,16 @@ export default function Home() {
       </section>
 
       {/* Process Section */}
-      <section id="process" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section id="process" className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
               נוהל הזמנת עבודה
             </h2>
           </motion.div>
@@ -204,7 +205,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20" style={{ background: 'rgb(0, 88, 131)' }}>
+      <section className="py-12" style={{ background: 'rgb(0, 88, 131)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -212,15 +213,15 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               מוכנים להתחיל?
             </h2>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-lg text-white/90 mb-6">
               צרו איתנו קשר עוד היום ונשמח לסייע לכם בכל פרויקט
             </p>
             <a
               href={`/Contact`}
-              className="inline-block bg-white text-[rgb(0,88,131)] px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-xl"
+              className="inline-block bg-white text-[rgb(0,88,131)] px-8 py-3 rounded-full font-bold text-base hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-xl"
             >
               יצירת קשר
             </a>
