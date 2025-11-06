@@ -37,18 +37,20 @@ export default function Layout({ children, currentPageName }) {
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-    // No need to close mobile menu here, handleNavigation already does it
   };
 
   const handleNavigation = (page, section) => {
-    setIsMobileMenuOpen(false); // Close mobile menu on any navigation attempt
+    setIsMobileMenuOpen(false);
     
-    if (currentPageName === page && section) {
-      // אנחנו באותו עמוד, רק צריך לגלול
+    if (page === "Home" && !section) {
+      // לחיצה על "עמוד הבית" - תמיד עובר לעמוד הבית
+      window.location.href = createPageUrl("Home");
+    } else if (currentPageName === "Home" && section) {
+      // אנחנו בעמוד הבית, רק צריך לגלול
       setTimeout(() => scrollToSection(section), 100);
-    } else if (section) {
-      // עובר לעמוד אחר עם סקשן
-      window.location.href = createPageUrl(page) + "#" + section;
+    } else if (page === "Home" && section) {
+      // עובר לעמוד הבית עם סקשן
+      window.location.href = createPageUrl("Home") + "#" + section;
     } else {
       // עובר לעמוד אחר בלי סקשן
       window.location.href = createPageUrl(page);
@@ -89,21 +91,18 @@ export default function Layout({ children, currentPageName }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Right Logo - מכללה */}
-            <button
-              onClick={() => handleNavigation("Home")}
-              className="flex items-center cursor-pointer hover:opacity-80 transition-opacity"
-            >
+            <div className="flex items-center">
               <img
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/5d0ed06d1_collegeLogoText.png"
                 alt="לוגו המכללה"
                 className="h-16 w-auto"
               />
-            </button>
+            </div>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
               <button
-                onClick={() => handleNavigation("Home", isHomePage ? "home" : null)}
+                onClick={() => handleNavigation("Home")}
                 className="text-gray-700 font-medium transition-colors cursor-pointer"
               >
                 עמוד הבית
@@ -182,7 +181,7 @@ export default function Layout({ children, currentPageName }) {
           <div className="lg:hidden bg-white border-t shadow-lg">
             <div className="px-4 py-4 space-y-3">
               <button
-                onClick={() => handleNavigation("Home", isHomePage ? "home" : null)}
+                onClick={() => handleNavigation("Home")}
                 className="block w-full text-right px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
               >
                 עמוד הבית
