@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Menu, X, ChevronDown } from "lucide-react";
 import {
@@ -21,6 +21,7 @@ export default function Layout({ children, currentPageName }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +37,14 @@ export default function Layout({ children, currentPageName }) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
     setIsMobileMenuOpen(false);
+  };
+
+  const handleHomeClick = (e) => {
+    e.preventDefault();
+    navigate(createPageUrl("Home"));
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 100);
   };
 
   const isHomePage = currentPageName === "Home";
@@ -66,14 +75,14 @@ export default function Layout({ children, currentPageName }) {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Left Logo - הוצאה לאור */}
-            <div className="flex items-center">
+            {/* Right Logo - מכללה */}
+            <Link to={createPageUrl("Home")} className="flex items-center" onClick={handleHomeClick}>
               <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/9d0f053f3_.png"
-                alt="לוגו הוצאה לאור"
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/5d0ed06d1_collegeLogoText.png"
+                alt="לוגו המכללה"
                 className="h-16 w-auto"
               />
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
@@ -85,12 +94,13 @@ export default function Layout({ children, currentPageName }) {
                   עמוד הבית
                 </button>
               ) : (
-                <Link
-                  to={createPageUrl("Home")}
-                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                <a
+                  href={createPageUrl("Home")}
+                  onClick={handleHomeClick}
+                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors cursor-pointer"
                 >
                   עמוד הבית
-                </Link>
+                </a>
               )}
 
               <DropdownMenu>
@@ -156,14 +166,14 @@ export default function Layout({ children, currentPageName }) {
               </Link>
             </div>
 
-            {/* Right Logo - מכללה */}
-            <Link to={createPageUrl("Home")} className="flex items-center">
+            {/* Left Logo - הוצאה לאור */}
+            <div className="flex items-center">
               <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/5d0ed06d1_collegeLogoText.png"
-                alt="לוגו המכללה"
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/9d0f053f3_.png"
+                alt="לוגו הוצאה לאור"
                 className="h-16 w-auto"
               />
-            </Link>
+            </div>
 
             {/* Mobile menu button */}
             <button
@@ -191,13 +201,16 @@ export default function Layout({ children, currentPageName }) {
                   עמוד הבית
                 </button>
               ) : (
-                <Link
-                  to={createPageUrl("Home")}
-                  className="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                <a
+                  href={createPageUrl("Home")}
+                  onClick={(e) => {
+                    handleHomeClick(e);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium cursor-pointer"
                 >
                   עמוד הבית
-                </Link>
+                </a>
               )}
 
               <div className="px-4 py-2">
@@ -274,33 +287,21 @@ export default function Layout({ children, currentPageName }) {
       {/* Footer */}
       <footer className="bg-gradient-to-l from-gray-900 to-gray-800 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-right">
-            <div>
-              <h3 className="text-2xl font-bold mb-4">הוצאה לאור פיקוד העורף</h3>
-              <p className="text-gray-300">בית הדפוס וההוצאה לאור בשבילך</p>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="text-center md:text-right">
+              <h3 className="text-2xl font-bold mb-2">קטלוג מוצרים</h3>
+              <p className="text-gray-300">לוגו 2025</p>
             </div>
-            <div>
-              <h4 className="font-semibold mb-4 text-xl">קישורים מהירים</h4>
-              <div className="space-y-2">
-                <Link
-                  to={createPageUrl("Home")}
-                  className="block text-gray-300 hover:text-white transition-colors"
-                >
-                  עמוד הבית
-                </Link>
-                <Link
-                  to={createPageUrl("Contact")}
-                  className="block text-gray-300 hover:text-white transition-colors"
-                >
-                  יצירת קשר
-                </Link>
-              </div>
-            </div>
-            <div>
+            <div className="flex gap-8">
+              <img
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/5d0ed06d1_collegeLogoText.png"
+                alt="לוגו המכללה"
+                className="h-16 w-auto"
+              />
               <img
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/9d0f053f3_.png"
-                alt="לוגו"
-                className="h-20 mx-auto md:mr-0"
+                alt="לוגו הוצאה לאור"
+                className="h-16 w-auto"
               />
             </div>
           </div>

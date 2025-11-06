@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CategoryCard from "../components/CategoryCard";
-import { BookOpen, Book, Award, Sticker, Printer, Sparkles, CheckCircle, Users, Clock } from "lucide-react";
+import { BookOpen, Book, Award, Sticker, Printer } from "lucide-react";
 
 const categories = [
   {
@@ -215,7 +215,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-l from-blue-600 to-blue-700">
+      <section className="py-20" style={{ background: 'rgb(0, 88, 131)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -231,7 +231,7 @@ export default function Home() {
             </p>
             <a
               href={`/Contact`}
-              className="inline-block bg-white text-blue-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-xl"
+              className="inline-block bg-white text-[rgb(0,88,131)] px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-xl"
             >
               יצירת קשר
             </a>
