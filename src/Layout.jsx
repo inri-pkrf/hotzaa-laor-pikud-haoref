@@ -11,11 +11,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const categories = [
-  { id: 1, name: "ספרים וחוברות", color: "#00BFA5" },
-  { id: 2, name: "מחברות ופנקסים", color: "#C2185B" },
-  { id: 3, name: "תעודות וברכות", color: "#757575" },
-  { id: 4, name: "מדבקות ורולאפ", color: "#FF9800" },
-  { id: 5, name: "הדפסה על מוצרים", color: "#1E3A8A" },
+  { id: 1, name: "ספרים וחוברות", color: "rgb(39, 64, 111)" },
+  { id: 2, name: "מחברות ופנקסים", color: "rgb(241, 149, 44)" },
+  { id: 3, name: "תעודות וברכות", color: "rgb(98, 100, 100)" },
+  { id: 4, name: "מדבקות ורולאפ", color: "rgb(153, 24, 99)" },
+  { id: 5, name: "הדפסה על מוצרים", color: "rgb(67, 187, 144)" },
 ];
 
 export default function Layout({ children, currentPageName }) {

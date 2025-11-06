@@ -10,7 +10,7 @@ const categories = [
     id: 1,
     name: "ספרים וחוברות",
     description: "הדפסת ספרים איכותיים, חוברות מקצועיות ומודפסים שמשדרים איכות",
-    color: "#00BFA5",
+    color: "rgb(39, 64, 111)",
     icon: BookOpen,
     image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/4a6837b07_Screenshot2025-11-06125614.png"
   },
@@ -18,7 +18,7 @@ const categories = [
     id: 2,
     name: "מחברות ופנקסים",
     description: "מחברות ופנקסים מותאמים אישית לכל צורך - מעוצבים ומודפסים בקפידה",
-    color: "#C2185B",
+    color: "rgb(241, 149, 44)",
     icon: Book,
     image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/b4431795d_Screenshot2025-11-06125625.png"
   },
@@ -26,7 +26,7 @@ const categories = [
     id: 3,
     name: "תעודות וברכות",
     description: "תעודות מעוצבות, כרטיסי ברכה ומוצרי נייר יוקרתיים לכל אירוע",
-    color: "#757575",
+    color: "rgb(98, 100, 100)",
     icon: Award,
     image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/6b230f223_Screenshot2025-11-06125636.png"
   },
@@ -34,7 +34,7 @@ const categories = [
     id: 4,
     name: "מדבקות ורולאפ",
     description: "מדבקות איכותיות, רולאפים וחומרי שיווק מעוצבים במגוון גדלים",
-    color: "#FF9800",
+    color: "rgb(153, 24, 99)",
     icon: Sticker,
     image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/2300455d0_Screenshot2025-11-06125646.png"
   },
@@ -42,7 +42,7 @@ const categories = [
     id: 5,
     name: "הדפסה על מוצרים",
     description: "הדפסה איכותית על מגוון מוצרים - ספלים, חולצות, תיקים ועוד",
-    color: "#1E3A8A",
+    color: "rgb(67, 187, 144)",
     icon: Printer,
     image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/88e13cc77_Screenshot2025-11-06125656.png"
   },
@@ -114,9 +114,11 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
-              המוצרים שלנו
-            </h2>
+            <div className="inline-block px-12 py-6 rounded-3xl mb-6" style={{ backgroundColor: 'rgb(241, 149, 44)' }}>
+              <h2 className="text-5xl md:text-6xl font-bold text-white">
+                המוצרים שלנו
+              </h2>
+            </div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               מגוון רחב של פתרונות הדפסה והוצאה לאור מקצועיים
             </p>
