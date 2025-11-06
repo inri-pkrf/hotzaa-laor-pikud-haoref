@@ -78,7 +78,7 @@ export default function Home() {
         className="relative min-h-[50vh] flex items-center justify-center pt-32 pb-20 bg-white"
         style={{ opacity: heroOpacity, scale: heroScale }}
       >
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" style={{ backgroundColor: 'rgb(255, 180, 80)' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ export default function Home() {
             >
               הוצאה לאור פיקוד העורף
             </motion.h1>
-            <div className="inline-block px-12 py-4 rounded-3xl" style={{ backgroundColor: 'rgb(255, 180, 80)' }}>
+            <div className="inline-block px-12 py-4 rounded-3xl" >
               <motion.p
                 className="text-xl md:text-2xl text-white font-semibold"
                 initial={{ opacity: 0, y: 30 }}
