@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import CategoryCard from "../components/CategoryCard";
@@ -11,7 +12,7 @@ const categories = [
     description: "הדפסת ספרים איכותיים, חוברות מקצועיות ומודפסים שמשדרים איכות",
     color: "#00BFA5",
     icon: BookOpen,
-    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/070469535_.png"
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/4a6837b07_Screenshot2025-11-06125614.png"
   },
   {
     id: 2,
@@ -19,7 +20,7 @@ const categories = [
     description: "מחברות ופנקסים מותאמים אישית לכל צורך - מעוצבים ומודפסים בקפידה",
     color: "#C2185B",
     icon: Book,
-    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/070469535_.png"
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/b4431795d_Screenshot2025-11-06125625.png"
   },
   {
     id: 3,
@@ -27,7 +28,7 @@ const categories = [
     description: "תעודות מעוצבות, כרטיסי ברכה ומוצרי נייר יוקרתיים לכל אירוע",
     color: "#757575",
     icon: Award,
-    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/070469535_.png"
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/6b230f223_Screenshot2025-11-06125636.png"
   },
   {
     id: 4,
@@ -35,7 +36,7 @@ const categories = [
     description: "מדבקות איכותיות, רולאפים וחומרי שיווק מעוצבים במגוון גדלים",
     color: "#FF9800",
     icon: Sticker,
-    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/070469535_.png"
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/2300455d0_Screenshot2025-11-06125646.png"
   },
   {
     id: 5,
@@ -43,7 +44,7 @@ const categories = [
     description: "הדפסה איכותית על מגוון מוצרים - ספלים, חולצות, תיקים ועוד",
     color: "#1E3A8A",
     icon: Printer,
-    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/070469535_.png"
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/88e13cc77_Screenshot2025-11-06125656.png"
   },
 ];
 

@@ -71,6 +71,11 @@ export default function Layout({ children, currentPageName }) {
         h1, h2, h3, h4, h5, h6 {
           font-family: 'Karantina', cursive;
         }
+        
+        nav button:hover,
+        nav a:hover {
+          color: rgb(34, 179, 225) !important;
+        }
       `}</style>
 
       {/* Navigation */}
@@ -99,13 +104,13 @@ export default function Layout({ children, currentPageName }) {
             <div className="hidden lg:flex items-center gap-8">
               <button
                 onClick={() => handleNavigation("Home", isHomePage ? "home" : null)}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors cursor-pointer"
+                className="text-gray-700 font-medium transition-colors cursor-pointer"
               >
                 עמוד הבית
               </button>
 
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-gray-700 hover:text-blue-600 font-medium transition-colors cursor-pointer">
+                <DropdownMenuTrigger className="flex items-center gap-1 text-gray-700 font-medium transition-colors cursor-pointer">
                   המוצרים שלנו
                   <ChevronDown className="w-4 h-4" />
                 </DropdownMenuTrigger>
@@ -129,21 +134,21 @@ export default function Layout({ children, currentPageName }) {
 
               <button
                 onClick={() => handleNavigation("Home", "process")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors cursor-pointer"
+                className="text-gray-700 font-medium transition-colors cursor-pointer"
               >
                 תהליך עבודה
               </button>
 
               <button
                 onClick={() => handleNavigation("Home", "gallery")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors cursor-pointer"
+                className="text-gray-700 font-medium transition-colors cursor-pointer"
               >
                 גלריית עבודות
               </button>
 
               <button
                 onClick={() => handleNavigation("Contact")}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors cursor-pointer"
+                className="text-gray-700 font-medium transition-colors cursor-pointer"
               >
                 יצירת קשר
               </button>
@@ -192,8 +197,8 @@ export default function Layout({ children, currentPageName }) {
                     <Link
                       key={category.id}
                       to={createPageUrl("Category", `?id=${category.id}`)}
-                      className="flex items-center gap-2 text-gray-700 hover:text-blue-600 py-1"
-                      onClick={() => setIsMobileMenuOpen(false)} // Keep this here as Link doesn't call handleNavigation
+                      className="flex items-center gap-2 text-gray-700 py-1"
+                      onClick={() => setIsMobileMenuOpen(false)}
                     >
                       <div
                         className="w-3 h-3 rounded-full"

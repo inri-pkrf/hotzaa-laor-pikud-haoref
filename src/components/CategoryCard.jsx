@@ -16,25 +16,26 @@ export default function CategoryCard({ category, index }) {
       <Link to={createPageUrl("Category", `?id=${category.id}`)}>
         <div
           className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105"
-          style={{
-            background: `linear-gradient(135deg, ${category.color}dd, ${category.color})`,
-            minHeight: "320px",
-          }}
+          style={{ minHeight: "320px" }}
         >
-          {/* Background pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <img
+              src={category.image}
+              alt={category.name}
+              className="w-full h-full object-cover"
+            />
+            <div 
               className="absolute inset-0"
               style={{
-                backgroundImage: `url(${category.image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
+                background: `linear-gradient(135deg, ${category.color}dd, ${category.color})`,
+                mixBlendMode: "multiply"
               }}
             />
           </div>
 
           {/* Content */}
-          <div className="relative h-full p-8 flex flex-col justify-between">
+          <div className="relative h-full p-8 flex flex-col justify-between" style={{ minHeight: "320px" }}>
             <div>
               {/* Icon */}
               <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -60,7 +61,7 @@ export default function CategoryCard({ category, index }) {
           </div>
 
           {/* Hover overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
       </Link>
     </motion.div>
