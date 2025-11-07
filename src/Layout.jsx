@@ -234,7 +234,7 @@ export default function Layout({ children, currentPageName }) {
       <main>{children}</main>
 
       {/* Footer */}
-      <footer className="text-white py-12" style={{ background: 'linear-gradient(to left, #2B3E6F, #1a2847)' }}>
+      <footer className="bg-gray-600 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-6">
             {/* Logo */}
@@ -248,7 +248,7 @@ export default function Layout({ children, currentPageName }) {
             <h3 className="text-2xl font-bold">קטלוג מוצרים</h3>
             
             {/* Copyright */}
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-gray-300">
               כל הזכויות שמורות להוצאה לאור פיקוד העורף © 2025
             </p>
           </div>
