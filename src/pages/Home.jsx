@@ -12,7 +12,7 @@ const categories = [
     description: "הדפסת ספרים איכותיים, חוברות מקצועיות ומודפסים שמשדרים איכות",
     color: "rgb(39, 64, 111)",
     icon: BookOpen,
-    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/4a6837b07_Screenshot2025-11-06125614.png"
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/4a6837b03_Screenshot2025-11-06125614.png"
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const categories = [
     description: "מחברות ופנקסים מותאמים אישית לכל צורך - מעוצבים ומודפסים בקפידה",
     color: "rgb(255, 180, 80)",
     icon: Book,
-    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/b4431795d_Screenshot2025-11-06125625.png"
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/b44317953_Screenshot2025-11-06125625.png"
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const categories = [
     description: "מדבקות איכותיות, רולאפים וחומרי שיווק מעוצבים במגוון גדלים",
     color: "rgb(153, 24, 99)",
     icon: Sticker,
-    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/2300455d0_Screenshot2025-11-06125646.png"
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/2300455d3_Screenshot2025-11-06125646.png"
   },
   {
     id: 5,
@@ -44,23 +44,32 @@ const categories = [
     description: "הדפסה איכותית על מגוון מוצרים - ספלים, חולצות, תיקים ועוד",
     color: "rgb(67, 187, 144)",
     icon: Printer,
-    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/88e13cc77_Screenshot2025-11-06125656.png"
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/88e13cc73_Screenshot2025-11-06125656.png"
   },
 ];
 
 const galleryImages = [
-  { url: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&q=80", span: "row-span-2" },
-  { url: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&q=80", span: "col-span-1" },
-  { url: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800&q=80", span: "col-span-1" },
-  { url: "https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=800&q=80", span: "col-span-2" },
-  { url: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80", span: "col-span-1" },
-  { url: "https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?w=800&q=80", span: "row-span-2" },
-  { url: "https://images.unsplash.com/photo-1513001900722-370f803f498d?w=800&q=80", span: "col-span-1" },
-  { url: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=800&q=80", span: "col-span-2" },
-  { url: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80", span: "col-span-1" },
-  { url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80", span: "col-span-1" },
-  { url: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80", span: "row-span-2" },
-  { url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80", span: "col-span-1" },
+  "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&q=80",
+  "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&q=80",
+  "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&q=80",
+  "https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=400&q=80",
+  "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&q=80",
+  "https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?w=400&q=80",
+  "https://images.unsplash.com/photo-1513001900722-370f803f498d?w=400&q=80",
+  "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400&q=80",
+  "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&q=80",
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+  "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=400&q=80",
+  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80",
+  "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&q=80",
+  "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=80",
+  "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&q=80",
+  "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&q=80",
+  "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&q=80",
+  "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&q=80",
+  "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=400&q=80",
+  "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&q=80",
+  "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=400&q=80",
 ];
 
 const features = [
@@ -310,27 +319,27 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-4">
-            {galleryImages.map((item, index) => (
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-6">
+            {galleryImages.map((url, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.8, rotateY: -20 }}
-                whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
-                whileHover={{ scale: 1.05, zIndex: 10 }}
-                className={`relative group overflow-hidden rounded-2xl shadow-xl ${item.span}`}
+                transition={{ duration: 0.6, delay: index * 0.03 }}
+                whileHover={{ scale: 1.1, zIndex: 10 }}
+                className="relative group overflow-hidden rounded-full aspect-square shadow-xl"
               >
                 <img
-                  src={item.url}
+                  src={url}
                   alt={`עבודה ${index + 1}`}
-                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
                 
-                <div className="absolute inset-0 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-white font-semibold text-lg drop-shadow-lg">
-                    פרויקט {index + 1}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-white font-semibold text-sm drop-shadow-lg">
+                    {index + 1}
                   </span>
                 </div>
               </motion.div>
