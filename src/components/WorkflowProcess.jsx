@@ -57,22 +57,25 @@ export default function WorkflowProcess() {
           >
             {/* Card */}
             <div className={`relative bg-gradient-to-br ${step.gradient} rounded-3xl p-10 shadow-2xl overflow-hidden group`}>
-              {/* Background Pattern with Icons */}
-              <div className="absolute inset-0 overflow-hidden opacity-30">
-                {[...Array(6)].map((_, i) => (
-                  <step.icon
-                    key={i}
-                    className="absolute text-white"
-                    style={{
-                      width: "120px",
-                      height: "120px",
-                      top: `${(i % 3) * 33}%`,
-                      right: `${Math.floor(i / 3) * 40}%`,
-                      transform: "rotate(45deg)",
-                      opacity: 0.3,
-                    }}
-                  />
-                ))}
+              {/* Background Pattern with Icons - Organized Grid */}
+              <div className="absolute inset-0 overflow-hidden opacity-20">
+                {[...Array(20)].map((_, i) => {
+                  const row = Math.floor(i / 5);
+                  const col = i % 5;
+                  return (
+                    <step.icon
+                      key={i}
+                      className="absolute text-white"
+                      style={{
+                        width: "80px",
+                        height: "80px",
+                        top: `${row * 25}%`,
+                        left: `${col * 20}%`,
+                        transform: "rotate(45deg)",
+                      }}
+                    />
+                  );
+                })}
               </div>
 
               {/* Content */}
