@@ -234,7 +234,7 @@ export default function Layout({ children, currentPageName }) {
       <main>{children}</main>
 
       {/* Footer */}
-      <footer className="bg-gray-600 text-white py-12">
+      <footer className="bg-gray-200 text-gray-800 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-6">
             {/* Logo */}
@@ -245,10 +245,10 @@ export default function Layout({ children, currentPageName }) {
             />
             
             {/* Catalog Text */}
-            <h3 className="text-2xl font-bold">קטלוג מוצרים</h3>
+            <h3 className="text-2xl font-bold text-gray-900">קטלוג מוצרים</h3>
             
             {/* Copyright */}
-            <p className="text-sm text-gray-300">
+            <p className="text-sm text-gray-600">
               כל הזכויות שמורות להוצאה לאור פיקוד העורף © 2025
             </p>
           </div>
