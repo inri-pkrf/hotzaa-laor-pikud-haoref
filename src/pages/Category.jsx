@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -13,26 +12,31 @@ const categoryInfo = {
     name: "ספרים וחוברות",
     color: "rgb(39, 64, 111)",
     subtitle: "הדפסה איכותית היא הבסיס לכל מוצר דפוס, החל מפנקסים ועד ספרים. באמצעות טכנולוגיות מתקדמות וצבעים חדים, אנו מספקים תוצרים מדויקים ומרשימים לכל מטרה. כמות מינימלית להדפסה 10 יחידות.",
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/4a6837b07_Screenshot2025-11-06125614.png"
   },
   2: {
     name: "מחברות ופנקסים",
     color: "rgb(255, 180, 80)",
     subtitle: "מחברות ממותגות הן מוצר שימושי ומרשים. אנו מספקים מחברות בעיצובים ייחודיים, עם כריכה אישית והדפסה איכותית שמתאימה לכל מטרה.",
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/b4431795d_Screenshot2025-11-06125625.png"
   },
   3: {
     name: "תעודות וברכות",
     color: "rgb(98, 100, 100)",
     subtitle: "תעודות וברכות הן דרך מרשימה להביע הערכה והוקרה. אנו מציעים מגוון רחב של עיצובים ייחודיים, בהדפסה איכותית וגימור יוקרתי, המותאמים לכל אירוע ומעמד רשמי.",
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/6b230f223_Screenshot2025-11-06125636.png"
   },
   4: {
     name: "מדבקות ורולאפ",
     color: "rgb(153, 24, 99)",
     subtitle: "שילוט מקצועי ורולאפים הם כלי תצוגה מושלמים. אנו מציעים מגוון פתרונות שילוט באיכות גבוהה עם גימור מרשים המותאם לצרכים שלכם.",
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/2300455d0_Screenshot2025-11-06125646.png"
   },
   5: {
     name: "הדפסה על מוצרים",
     color: "rgb(67, 187, 144)",
     subtitle: "הדפסה על מוצרים מאפשרת התאמה אישית מושלמת. באמצעות תהליך הדפסה בחום, אנו מוודאים שהעיצוב נשמר לאורך זמן באיכות גבוהה וללא דהייה.",
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/88e13cc77_Screenshot2025-11-06125656.png"
   },
 };
 
@@ -66,14 +70,26 @@ export default function Category() {
 
   return (
     <div className="min-h-screen pt-20">
-      {/* Hero */}
-      <section
-        className="py-20"
-        style={{
-          background: `linear-gradient(135deg, ${category.color}, ${category.color}dd)`,
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero with Background Image */}
+      <section className="relative py-20 overflow-hidden" style={{ minHeight: "400px" }}>
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={category.image}
+            alt={category.name}
+            className="w-full h-full object-cover"
+          />
+          {/* Overlay */}
+          <div 
+            className="absolute inset-0"
+            style={{
+              background: `linear-gradient(135deg, ${category.color}ee, ${category.color}cc)`
+            }}
+          />
+        </div>
+
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             to={createPageUrl("Home")}
             className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-8 transition-colors"
@@ -86,10 +102,10 @@ export default function Category() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
               {category.name}
             </h1>
-            <p className="text-xl text-white/95 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-white max-w-4xl mx-auto leading-relaxed drop-shadow-md">
               {category.subtitle}
             </p>
           </motion.div>
