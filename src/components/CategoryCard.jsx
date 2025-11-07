@@ -17,20 +17,14 @@ export default function CategoryCard({ category, index }) {
       <Link to={`${createPageUrl("Category")}?id=${category.id}`} className="block h-full">
         <div
           className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 h-full flex flex-col"
+          style={{ backgroundColor: category.color }}
         >
           {/* Background Image */}
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 opacity-30">
             <img
               src={category.image}
               alt={category.name}
               className="w-full h-full object-cover"
-            />
-            {/* Color Overlay */}
-            <div 
-              className="absolute inset-0" 
-              style={{ 
-                background: `linear-gradient(135deg, ${category.color}dd, ${category.color}aa)` 
-              }}
             />
           </div>
 

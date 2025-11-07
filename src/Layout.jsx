@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
@@ -6,11 +5,11 @@ import {
   Menu,
   X,
   ChevronDown,
-  Book, // Added for categories
-  NotebookPen, // Added for categories
-  Award, // Added for categories
-  Tag, // Added for categories
-  Printer, // Added for categories
+  Book,
+  NotebookPen,
+  Award,
+  Tag,
+  Printer,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import {
@@ -31,7 +30,6 @@ const categories = [
 export default function Layout({ children, currentPageName }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -42,30 +40,18 @@ export default function Layout({ children, currentPageName }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
   const handleNavigation = (page, section) => {
     setIsMobileMenuOpen(false);
     
     if (page === "Home" && !section) {
       // Navigate to home page
-      navigate(createPageUrl("Home"));
-    } else if (currentPageName === "Home" && section) {
-      // Already on home page, just scroll to section
-      setTimeout(() => scrollToSection(section), 100);
-    } else if (page === "Home" && section) {
-      // Navigate to home page, then scroll to section
-      navigate(createPageUrl("Home"));
-      // Delay scrolling to ensure the Home page has rendered
-      setTimeout(() => scrollToSection(section), 300);
+      window.location.href = createPageUrl("Home");
+    } else if (section) {
+      // Navigate to home page with hash
+      window.location.href = createPageUrl("Home") + "#" + section;
     } else {
       // Navigate to other page
-      navigate(createPageUrl(page));
+      window.location.href = createPageUrl(page);
     }
   };
 
