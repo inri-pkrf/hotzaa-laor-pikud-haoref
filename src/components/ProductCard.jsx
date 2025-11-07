@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@/components/ui/card";
@@ -140,8 +141,8 @@ export default function ProductCard({ product, index }) {
           {/* Price Section */}
           {product.price_info && (
             <div className="relative overflow-hidden rounded-xl p-3 mt-auto">
-              {/* Animated Background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 animate-gradient-x" />
+              {/* Animated Background with Green-Blue Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-500 animate-gradient-x" />
               <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
               
               {/* Content */}
