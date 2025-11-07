@@ -35,7 +35,7 @@ const steps = [
 
 export default function WorkflowProcess() {
   return (
-    <div className="max-w-2xl mx-auto space-y-8">
+    <div className="max-w-3xl mx-auto space-y-8">
       {steps.map((step, index) => (
         <motion.div
           key={index}
@@ -51,61 +51,65 @@ export default function WorkflowProcess() {
           className="relative"
         >
           <motion.div
-            whileHover={{ scale: 1.03, y: -8 }}
+            whileHover={{ scale: 1.02, y: -5 }}
             transition={{ type: "spring", stiffness: 300 }}
             className="relative"
           >
             {/* Card */}
-            <div className={`relative bg-gradient-to-br ${step.gradient} rounded-3xl p-8 shadow-2xl overflow-hidden group`}>
-              {/* Decorative Background Elements */}
-              <div className="absolute inset-0 opacity-20">
-                <div className="absolute -top-10 -right-10 w-40 h-40 bg-white rounded-full blur-3xl" />
-                <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-white rounded-full blur-3xl" />
+            <div className={`relative bg-gradient-to-br ${step.gradient} rounded-3xl p-10 shadow-2xl overflow-hidden group`}>
+              {/* Background Pattern with Icons */}
+              <div className="absolute inset-0 overflow-hidden opacity-30">
+                {[...Array(6)].map((_, i) => (
+                  <step.icon
+                    key={i}
+                    className="absolute text-white"
+                    style={{
+                      width: "120px",
+                      height: "120px",
+                      top: `${(i % 3) * 33}%`,
+                      right: `${Math.floor(i / 3) * 40}%`,
+                      transform: "rotate(45deg)",
+                      opacity: 0.3,
+                    }}
+                  />
+                ))}
               </div>
 
               {/* Content */}
-              <div className="relative z-10 text-center">
-                {/* Number Badge */}
+              <div className="relative z-10">
+                {/* Number Badge - Top Right */}
                 <motion.div
                   initial={{ scale: 0, rotate: -180 }}
                   whileInView={{ scale: 1, rotate: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.15 + 0.3, type: "spring", stiffness: 200 }}
-                  className="inline-flex items-center justify-center w-20 h-20 bg-white/30 backdrop-blur-md rounded-full mb-4 shadow-xl"
+                  className="absolute top-0 right-0 flex items-center justify-center w-20 h-20 bg-white/30 backdrop-blur-md rounded-full shadow-xl"
                 >
                   <span className="text-4xl font-bold text-white">{step.number}</span>
                 </motion.div>
 
-                {/* Icon */}
-                <motion.div
-                  whileHover={{ rotate: 360, scale: 1.2 }}
-                  transition={{ duration: 0.6 }}
-                  className="inline-block mb-4"
-                >
-                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto shadow-lg">
-                    <step.icon className="w-8 h-8 text-white" />
-                  </div>
-                </motion.div>
+                {/* Text Content - Centered */}
+                <div className="text-center pt-16 pb-4">
+                  {/* Title */}
+                  <h3 className="text-4xl text-white mb-3 leading-tight drop-shadow-lg font-['Assistant']" style={{ fontWeight: 400 }}>
+                    {step.title}
+                  </h3>
 
-                {/* Title */}
-                <h3 className="text-2xl font-bold text-white mb-2 leading-tight drop-shadow-lg">
-                  {step.title}
-                </h3>
+                  {/* Subtitle */}
+                  <p className="text-lg text-white/95 leading-relaxed drop-shadow-md">
+                    {step.subtitle}
+                  </p>
 
-                {/* Subtitle */}
-                <p className="text-base text-white/95 leading-relaxed drop-shadow-md">
-                  {step.subtitle}
-                </p>
-
-                {/* Bottom decoration line */}
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 + 0.5, duration: 0.8 }}
-                  className="mt-6 h-1 bg-white/30 rounded-full mx-auto"
-                  style={{ width: "60%" }}
-                />
+                  {/* Bottom decoration line */}
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.15 + 0.5, duration: 0.8 }}
+                    className="mt-8 h-1 bg-white/40 rounded-full mx-auto"
+                    style={{ width: "50%" }}
+                  />
+                </div>
               </div>
 
               {/* Shimmer effect on hover */}
