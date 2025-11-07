@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import CategoryCard from "../components/CategoryCard";
@@ -251,7 +252,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px]">
             {galleryImages.map((item, index) => (
               <motion.div
                 key={index}
@@ -260,7 +261,7 @@ export default function Home() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, delay: index * 0.05 }}
                 whileHover={{ scale: 1.05, zIndex: 10 }}
-                className={`relative group overflow-hidden rounded-2xl shadow-xl ${item.span}`}
+                className={`relative group overflow-hidden ${item.span}`}
               >
                 <img
                   src={item.url}
