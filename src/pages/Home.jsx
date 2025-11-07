@@ -18,7 +18,7 @@ const categories = [
     id: 2,
     name: "מחברות ופנקסים",
     description: "מחברות ופנקסים מותאמים אישית לכל צורך - מעוצבים ומודפסים בקפידה",
-    color: "rgb(255, 180, 80)", // Changed color as per instruction
+    color: "rgb(255, 180, 80)",
     icon: Book,
     image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/b4431795d_Screenshot2025-11-06125625.png"
   },
@@ -49,12 +49,15 @@ const categories = [
 ];
 
 const galleryImages = [
-  "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&q=80",
-  "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&q=80",
-  "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800&q=80",
-  "https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=800&q=80",
-  "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80",
-  "https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?w=800&q=80",
+  { url: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&q=80", span: "row-span-2" },
+  { url: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&q=80", span: "col-span-1" },
+  { url: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800&q=80", span: "col-span-1" },
+  { url: "https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=800&q=80", span: "col-span-2 row-span-1" },
+  { url: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80", span: "col-span-1" },
+  { url: "https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?w=800&q=80", span: "row-span-2" },
+  { url: "https://images.unsplash.com/photo-1513001900722-370f803f498d?w=800&q=80", span: "col-span-1" },
+  { url: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=800&q=80", span: "col-span-2" },
+  { url: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80", span: "col-span-1 row-span-1" },
 ];
 
 export default function Home() {
@@ -85,20 +88,30 @@ export default function Home() {
 
   return (
     <div className="overflow-x-hidden">
-      {/* Hero Section */}
+      {/* Hero Section with Background */}
       <motion.section
         id="home"
-        className="relative min-h-[50vh] flex items-center justify-center pt-32 pb-20 bg-white"
+        className="relative min-h-[60vh] flex items-center justify-center pt-32 pb-20 overflow-hidden"
         style={{ opacity: heroOpacity, scale: heroScale }}
       >
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=1920&q=80"
+            alt="רקע"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#2B3E6F]/90 via-[#1a2847]/85 to-[#0d1523]/90" />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             <motion.h1
-              className="text-6xl md:text-8xl font-bold text-gray-900 mb-4"
+              className="text-6xl md:text-8xl font-bold text-white mb-4 drop-shadow-2xl"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -106,7 +119,7 @@ export default function Home() {
               הוצאה לאור פיקוד העורף
             </motion.h1>
             <motion.p
-              className="text-xl md:text-2xl text-gray-900 font-semibold"
+              className="text-xl md:text-2xl text-white font-semibold drop-shadow-lg"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -218,8 +231,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section id="gallery" className="py-20 bg-white">
+      {/* Gallery Section - New Design */}
+      <section id="gallery" className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -236,23 +249,30 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {galleryImages.map((image, index) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-4">
+            {galleryImages.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.8, rotateY: -20 }}
                 whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, rotateZ: 2 }}
-                className="relative group overflow-hidden rounded-xl shadow-lg aspect-square"
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.05 }}
+                whileHover={{ scale: 1.05, zIndex: 10 }}
+                className={`relative group overflow-hidden rounded-2xl shadow-xl ${item.span}`}
               >
                 <img
-                  src={image}
+                  src={item.url}
                   alt={`עבודה ${index + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {/* Optional overlay text */}
+                <div className="absolute inset-0 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-white font-semibold text-lg drop-shadow-lg">
+                    פרויקט {index + 1}
+                  </span>
+                </div>
               </motion.div>
             ))}
           </div>
