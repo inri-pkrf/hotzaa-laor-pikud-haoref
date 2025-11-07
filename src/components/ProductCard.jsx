@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Download, BookOpen, Sparkles, FileText, ChevronLeft, ChevronRight } from "lucide-react";
+import { Download, BookOpen, Sparkles, FileText, ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
 
 export default function ProductCard({ product, index }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -24,6 +24,11 @@ export default function ProductCard({ product, index }) {
     }
   };
 
+  const handleWhatsApp = () => {
+    const message = encodeURIComponent(`שלום, אני מעוניין להזמין את המוצר: ${product.title} (${product.code || ''})`);
+    window.open(`https://wa.me/972501234567?text=${message}`, '_blank');
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -35,13 +40,6 @@ export default function ProductCard({ product, index }) {
       <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 group bg-white h-full flex flex-col" style={{ height: "600px" }}>
         {/* Image Section with Carousel */}
         <div className="relative bg-gradient-to-br from-[#2B3E6F] to-[#1a2847] overflow-hidden" style={{ height: "280px" }}>
-          {/* Code Badge */}
-          {product.code && (
-            <div className="absolute top-4 right-4 bg-white px-3 py-1.5 rounded-lg shadow-md z-20">
-              <span className="text-xs font-bold text-gray-900">{product.code}</span>
-            </div>
-          )}
-
           {/* Carousel Images */}
           <div className="relative h-full flex items-center justify-center">
             <AnimatePresence mode="wait">
@@ -106,9 +104,7 @@ export default function ProductCard({ product, index }) {
           <div className="space-y-2.5 text-right flex-1">
             {product.binding && (
               <div className="flex items-center gap-2.5 text-gray-700">
-                <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <BookOpen className="w-4 h-4 text-blue-600" />
-                </div>
+                <BookOpen className="w-5 h-5 text-[rgb(34,179,225)] flex-shrink-0" />
                 <div className="flex-1">
                   <span className="text-sm font-semibold">כריכה:</span>
                   <span className="text-sm mr-1.5">{product.binding}</span>
@@ -117,9 +113,7 @@ export default function ProductCard({ product, index }) {
             )}
             {product.finish && (
               <div className="flex items-center gap-2.5 text-gray-700">
-                <div className="w-8 h-8 bg-purple-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Sparkles className="w-4 h-4 text-purple-600" />
-                </div>
+                <Sparkles className="w-5 h-5 text-[rgb(34,179,225)] flex-shrink-0" />
                 <div className="flex-1">
                   <span className="text-sm font-semibold">גימור:</span>
                   <span className="text-sm mr-1.5">{product.finish}</span>
@@ -128,9 +122,7 @@ export default function ProductCard({ product, index }) {
             )}
             {product.pages && (
               <div className="flex items-center gap-2.5 text-gray-700">
-                <div className="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <FileText className="w-4 h-4 text-green-600" />
-                </div>
+                <FileText className="w-5 h-5 text-[rgb(34,179,225)] flex-shrink-0" />
                 <div className="flex-1">
                   <span className="text-sm font-semibold">עמודים:</span>
                   <span className="text-sm mr-1.5">{product.pages}</span>
@@ -141,27 +133,31 @@ export default function ProductCard({ product, index }) {
 
           {/* Price Section */}
           {product.price_info && (
-            <div className="bg-gradient-to-l from-blue-50 to-blue-100 rounded-xl p-3 text-center">
-              <p className="text-lg font-bold text-[#2B3E6F]">
+            <div className="bg-gradient-to-l from-blue-50 to-blue-100 rounded-xl p-3">
+              <p className="text-base font-bold text-[#2B3E6F] text-center mb-2">
                 {product.price_info}
               </p>
+              <button
+                onClick={handleWhatsApp}
+                className="w-full flex items-center justify-center gap-2 text-green-600 hover:text-green-700 font-semibold transition-colors"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span className="text-sm">צרו קשר להזמנה</span>
+              </button>
             </div>
           )}
 
-          {/* Footer - Code & Download */}
-          <div className="flex items-center justify-between pt-3 border-t border-gray-200">
-            <div className="text-sm text-gray-600 font-medium">
-              {product.code && <span>קוד: {product.code}</span>}
-            </div>
+          {/* Footer - Download */}
+          <div className="pt-3 border-t border-gray-200">
             {product.template_file && (
               <Button
                 onClick={handleDownload}
                 variant="outline"
                 size="sm"
-                className="gap-2 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-300"
+                className="w-full gap-2 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-300"
               >
                 <Download className="w-4 h-4" />
-                <span className="text-xs font-medium">הורד דוגמא</span>
+                <span className="text-xs font-medium">הורדת קובץ עיצוב מותאם למידות</span>
               </Button>
             )}
           </div>
