@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Mail, Phone, MapPin, MessageCircle, Clock, Info } from "lucide-react";
 
 export default function Contact() {
   const handleWhatsApp = () => {
@@ -11,12 +10,12 @@ export default function Contact() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero */}
-      <section style={{ background: 'rgb(0, 88, 131)' }} className="py-20">
+      <section style={{ background: 'linear-gradient(135deg, rgb(0, 88, 131), rgb(34, 179, 225))' }} className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold text-white mb-6"
+            className="text-5xl md:text-6xl font-bold text-white mb-4"
           >
             יצירת קשר
           </motion.h1>
@@ -32,155 +31,143 @@ export default function Contact() {
       </section>
 
       {/* Contact Content */}
-      <section className="py-20 bg-[#FAFAF9]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Info */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Contact Methods */}
+          <div className="grid md:grid-cols-4 gap-8 mb-20">
+            {/* WhatsApp */}
+            <motion.button
+              onClick={handleWhatsApp}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              whileHover={{ y: -5 }}
+              className="text-center group"
+            >
+              <div className="mb-4 flex justify-center">
+                <MessageCircle className="w-12 h-12 text-[#25D366] transition-transform group-hover:scale-110" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">ווטסאפ</h3>
+              <p className="text-gray-600 text-sm" dir="ltr">050-123-4567</p>
+              <p className="text-xs text-[#25D366] font-medium mt-2">לחצו לשיחה</p>
+            </motion.button>
+
+            {/* Phone */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-center"
+            >
+              <div className="mb-4 flex justify-center">
+                <Phone className="w-12 h-12 text-[rgb(0,88,131)]" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">טלפון</h3>
+              <p className="text-gray-600 text-sm" dir="ltr">050-123-4567</p>
+            </motion.div>
+
+            {/* Email */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="text-center"
+            >
+              <div className="mb-4 flex justify-center">
+                <Mail className="w-12 h-12 text-[rgb(0,88,131)]" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">אימייל</h3>
+              <p className="text-gray-600 text-sm">info@example.co.il</p>
+            </motion.div>
+
+            {/* Address */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-center"
+            >
+              <div className="mb-4 flex justify-center">
+                <MapPin className="w-12 h-12 text-[rgb(0,88,131)]" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">כתובת</h3>
+              <p className="text-gray-600 text-sm">פיקוד העורף, ישראל</p>
+            </motion.div>
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-16" />
+
+          {/* Working Hours & Info */}
+          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            {/* Working Hours */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="space-y-8"
+              transition={{ delay: 0.5 }}
+              className="text-center"
             >
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  פרטי התקשרות
-                </h2>
-                <p className="text-lg text-gray-600 mb-8">
-                  נשמח לשמוע מכם ולסייע בכל שאלה או בקשה
-                </p>
+              <div className="mb-6 flex justify-center">
+                <Clock className="w-14 h-14 text-[rgb(0,88,131)]" />
               </div>
-
-              <div className="space-y-6">
-                {/* WhatsApp Button */}
-                <motion.button
-                  onClick={handleWhatsApp}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full"
-                >
-                  <Card className="border-2 border-green-100 hover:border-green-300 transition-all duration-300 hover:shadow-xl">
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-[#25D366] to-[#20BD5A] rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
-                          <MessageCircle className="w-6 h-6 text-white" />
-                        </div>
-                        <div className="text-right flex-1">
-                          <h3 className="font-bold text-gray-900 mb-1">ווטסאפ</h3>
-                          <p className="text-gray-600" dir="ltr">050-123-4567</p>
-                          <p className="text-sm text-green-600 font-medium mt-1">לחצו לשיחה</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.button>
-
-                <Card className="border-2 border-blue-100 hover:border-blue-300 transition-colors">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg" style={{ background: 'rgba(0, 88, 131, 0.1)' }}>
-                        <Phone className="w-6 h-6" style={{ color: 'rgb(0, 88, 131)' }} />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-gray-900 mb-1">טלפון</h3>
-                        <p className="text-gray-600" dir="ltr">
-                          050-123-4567
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-2 border-purple-100 hover:border-purple-300 transition-colors">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Mail className="w-6 h-6 text-purple-600" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-gray-900 mb-1">אימייל</h3>
-                        <p className="text-gray-600">info@example.co.il</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="border-2 border-orange-100 hover:border-orange-300 transition-colors">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <MapPin className="w-6 h-6 text-orange-600" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-gray-900 mb-1">כתובת</h3>
-                        <p className="text-gray-600">
-                          פיקוד העורף, ישראל
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </motion.div>
-
-            {/* Working Hours */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="space-y-8"
-            >
-              <div className="rounded-2xl p-8 shadow-xl" style={{ background: 'linear-gradient(135deg, rgba(0, 88, 131, 0.1), rgba(34, 179, 225, 0.1))' }}>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  שעות פעילות
-                </h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">שעות פעילות</h3>
+              
+              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+                <p className="text-lg font-bold text-gray-900 mb-6">ראשון - חמישי</p>
+                
                 <div className="space-y-4 text-gray-700">
-                  <div className="bg-white rounded-xl p-4 shadow-sm">
-                    <p className="font-bold text-lg mb-2 text-gray-900">ראשון - חמישי</p>
-                    <div className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm">קבלת קהל:</span>
-                        <span className="font-semibold">08:30 - 12:00</span>
-                      </div>
-                      <div className="border-t border-gray-200 pt-2">
-                        <p className="text-xs text-red-600 mb-2">הפסקת צהריים - ללא קבלת קהל</p>
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm">קבלת קהל:</span>
-                        <span className="font-semibold">13:00 - 15:00</span>
-                      </div>
-                    </div>
+                  <div className="flex items-center justify-between px-4">
+                    <span className="text-sm font-medium">קבלת קהל</span>
+                    <span className="font-bold" dir="ltr">08:30 - 12:00</span>
                   </div>
                   
-                  <div className="bg-gray-100 rounded-xl p-4">
-                    <p className="font-bold text-gray-900">שישי - שבת</p>
-                    <p className="text-gray-600 mt-1">סגור</p>
+                  <div className="border-t border-gray-300 my-4" />
+                  
+                  <div className="px-4 py-2 bg-red-50 rounded-lg">
+                    <p className="text-sm text-red-700 font-medium">הפסקת צהריים</p>
+                    <p className="text-xs text-red-600 mt-1" dir="ltr">12:00 - 13:30</p>
+                  </div>
+                  
+                  <div className="border-t border-gray-300 my-4" />
+                  
+                  <div className="flex items-center justify-between px-4">
+                    <span className="text-sm font-medium">קבלת קהל</span>
+                    <span className="font-bold" dir="ltr">13:30 - 15:30</span>
                   </div>
                 </div>
               </div>
+            </motion.div>
 
-              {/* Additional Info */}
-              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border-2 border-blue-100">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  מידע חשוב
-                </h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
-                    <span className="text-sm">מומלץ לתאם פגישה מראש</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
-                    <span className="text-sm">זמן תגובה להצעות מחיר: עד 48 שעות</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 mt-1">•</span>
-                    <span className="text-sm">כמות מינימלית להדפסה: 10 יחידות</span>
-                  </li>
-                </ul>
+            {/* Important Info */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6 }}
+              className="text-center"
+            >
+              <div className="mb-6 flex justify-center">
+                <Info className="w-14 h-14 text-[rgb(0,88,131)]" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">מידע חשוב</h3>
+              
+              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+                <div className="space-y-6 text-right">
+                  <div className="pb-6 border-b border-gray-300">
+                    <p className="text-sm font-medium text-gray-600 mb-2">זמן עבודה</p>
+                    <p className="text-lg font-bold text-gray-900">עד 14 ימי עבודה</p>
+                  </div>
+                  
+                  <div>
+                    <p className="text-base text-gray-700 leading-relaxed">
+                      פנו אלינו לקבלת הצעת מחיר והזמנת עבודה
+                    </p>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
+
         </div>
       </section>
     </div>
