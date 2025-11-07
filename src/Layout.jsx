@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
@@ -43,16 +42,12 @@ export default function Layout({ children, currentPageName }) {
     setIsMobileMenuOpen(false);
     
     if (page === "Home" && !section) {
-      // לחיצה על "עמוד הבית" - תמיד עובר לעמוד הבית
       window.location.href = createPageUrl("Home");
     } else if (currentPageName === "Home" && section) {
-      // אנחנו בעמוד הבית, רק צריך לגלול
       setTimeout(() => scrollToSection(section), 100);
     } else if (page === "Home" && section) {
-      // עובר לעמוד הבית עם סקשן
       window.location.href = createPageUrl("Home") + "#" + section;
     } else {
-      // עובר לעמוד אחר בלי סקשן
       window.location.href = createPageUrl(page);
     }
   };
@@ -156,7 +151,7 @@ export default function Layout({ children, currentPageName }) {
             {/* Left Logo - הוצאה לאור */}
             <div className="flex items-center">
               <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/9d0f053f3_.png"
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/977407d91_-.png"
                 alt="לוגו הוצאה לאור"
                 className="h-16 w-auto"
               />
@@ -243,7 +238,7 @@ export default function Layout({ children, currentPageName }) {
           <div className="flex flex-col items-center gap-6">
             {/* Logo */}
             <img
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/9d0f053f3_.png"
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/977407d91_-.png"
               alt="לוגו הוצאה לאור"
               className="h-20 w-auto"
             />

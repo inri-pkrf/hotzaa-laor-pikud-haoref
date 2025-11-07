@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import CategoryCard from "../components/CategoryCard";
@@ -52,12 +51,15 @@ const galleryImages = [
   { url: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&q=80", span: "row-span-2" },
   { url: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&q=80", span: "col-span-1" },
   { url: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800&q=80", span: "col-span-1" },
-  { url: "https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=800&q=80", span: "col-span-2 row-span-1" },
+  { url: "https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=800&q=80", span: "col-span-2" },
   { url: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80", span: "col-span-1" },
   { url: "https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?w=800&q=80", span: "row-span-2" },
   { url: "https://images.unsplash.com/photo-1513001900722-370f803f498d?w=800&q=80", span: "col-span-1" },
   { url: "https://images.unsplash.com/photo-1532012197267-da84d127e765?w=800&q=80", span: "col-span-2" },
-  { url: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80", span: "col-span-1 row-span-1" },
+  { url: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80", span: "col-span-1" },
+  { url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80", span: "col-span-1" },
+  { url: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80", span: "row-span-2" },
+  { url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80", span: "col-span-1" },
 ];
 
 export default function Home() {
@@ -98,10 +100,10 @@ export default function Home() {
         className="relative min-h-[60vh] flex items-center justify-center pt-32 pb-20 overflow-hidden"
         style={{ opacity: heroOpacity, scale: heroScale }}
       >
-        {/* Background Image */}
+        {/* Background Image - Printing Press */}
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=1920&q=80"
+            src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1920&q=80"
             alt="רקע"
             className="w-full h-full object-cover"
           />
@@ -235,7 +237,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Gallery Section - New Design */}
+      {/* Gallery Section */}
       <section id="gallery" className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -267,11 +269,10 @@ export default function Home() {
                 <img
                   src={item.url}
                   alt={`עבודה ${index + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
-                {/* Optional overlay text */}
                 <div className="absolute inset-0 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="text-white font-semibold text-lg drop-shadow-lg">
                     פרויקט {index + 1}
