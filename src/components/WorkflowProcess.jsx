@@ -1,5 +1,5 @@
 import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { FileText, DollarSign, CheckCircle, Package } from "lucide-react";
 
 const steps = [
@@ -8,122 +8,134 @@ const steps = [
     title: "מילוי טבלת הזמנת עבודה",
     subtitle: "(במחשב סודי) + אישור בטיחון מידע",
     icon: FileText,
-    color: "rgb(34, 179, 225)",
+    gradient: "from-cyan-500 to-blue-600",
   },
   {
     number: "02",
     title: "קבלת הצגת מחיר",
     subtitle: "תוך 48 שעות",
     icon: DollarSign,
-    color: "rgb(168, 85, 247)",
+    gradient: "from-purple-500 to-pink-600",
   },
   {
     number: "03",
     title: "אישור תקציב + התחלת עבודה",
     subtitle: "אישור סופי והעברה לייצור",
     icon: CheckCircle,
-    color: "rgb(34, 197, 94)",
+    gradient: "from-green-500 to-emerald-600",
   },
   {
     number: "04",
     title: "קבלת עבודה",
     subtitle: "עד 14 ימי עסקים",
     icon: Package,
-    color: "rgb(249, 115, 22)",
+    gradient: "from-orange-500 to-red-600",
   },
 ];
 
 export default function WorkflowProcess() {
   return (
-    <div className="relative max-w-3xl mx-auto py-8">
-      {/* Vertical Line */}
-      <div className="absolute right-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-purple-400 via-green-400 to-orange-400 transform translate-x-1/2" />
-
-      <div className="space-y-6">
-        {steps.map((step, index) => (
+    <div className="max-w-2xl mx-auto space-y-8">
+      {steps.map((step, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 50, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ 
+            duration: 0.6, 
+            delay: index * 0.15,
+            type: "spring",
+            stiffness: 100
+          }}
+          className="relative"
+        >
           <motion.div
-            key={index}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.6, delay: index * 0.15 }}
+            whileHover={{ scale: 1.03, y: -8 }}
+            transition={{ type: "spring", stiffness: 300 }}
             className="relative"
           >
-            <div className="flex items-center gap-8">
-              {/* Content - Alternating sides */}
-              <div className={`flex-1 ${index % 2 === 0 ? 'text-left' : 'text-right order-2'}`}>
-                <motion.div
-                  whileHover={{ scale: 1.05, x: index % 2 === 0 ? 10 : -10 }}
-                  className="inline-block"
-                >
-                  <div className="bg-white rounded-2xl p-5 shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-current max-w-xs"
-                       style={{ borderColor: `${step.color}20` }}>
-                    <div className="flex items-center gap-3 mb-2">
-                      <div 
-                        className="w-10 h-10 rounded-xl flex items-center justify-center shadow-md"
-                        style={{ backgroundColor: `${step.color}20` }}
-                      >
-                        <step.icon className="w-5 h-5" style={{ color: step.color }} />
-                      </div>
-                      <span 
-                        className="text-3xl font-bold opacity-40"
-                        style={{ color: step.color }}
-                      >
-                        {step.number}
-                      </span>
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1 leading-tight">
-                      {step.title}
-                    </h3>
-                    <p className="text-sm text-gray-600">
-                      {step.subtitle}
-                    </p>
-                  </div>
-                </motion.div>
+            {/* Card */}
+            <div className={`relative bg-gradient-to-br ${step.gradient} rounded-3xl p-8 shadow-2xl overflow-hidden group`}>
+              {/* Decorative Background Elements */}
+              <div className="absolute inset-0 opacity-20">
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-white rounded-full blur-3xl" />
+                <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-white rounded-full blur-3xl" />
               </div>
 
-              {/* Center Dot */}
-              <motion.div
-                initial={{ scale: 0, rotate: -180 }}
-                whileInView={{ scale: 1, rotate: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15 + 0.3, type: "spring", stiffness: 200 }}
-                className="absolute right-1/2 transform translate-x-1/2 z-10"
-              >
-                <div 
-                  className="w-12 h-12 rounded-full shadow-xl flex items-center justify-center relative"
-                  style={{ 
-                    background: `linear-gradient(135deg, ${step.color}, ${step.color}dd)`,
-                  }}
+              {/* Content */}
+              <div className="relative z-10 text-center">
+                {/* Number Badge */}
+                <motion.div
+                  initial={{ scale: 0, rotate: -180 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.15 + 0.3, type: "spring", stiffness: 200 }}
+                  className="inline-flex items-center justify-center w-20 h-20 bg-white/30 backdrop-blur-md rounded-full mb-4 shadow-xl"
                 >
-                  <span className="text-xl font-bold text-white">{step.number}</span>
-                  
-                  {/* Pulse effect */}
-                  <motion.div
-                    className="absolute inset-0 rounded-full"
-                    style={{ backgroundColor: step.color }}
-                    initial={{ scale: 1, opacity: 0.5 }}
-                    animate={{ scale: 1.5, opacity: 0 }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
-                  />
+                  <span className="text-4xl font-bold text-white">{step.number}</span>
+                </motion.div>
+
+                {/* Icon */}
+                <motion.div
+                  whileHover={{ rotate: 360, scale: 1.2 }}
+                  transition={{ duration: 0.6 }}
+                  className="inline-block mb-4"
+                >
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto shadow-lg">
+                    <step.icon className="w-8 h-8 text-white" />
+                  </div>
+                </motion.div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-bold text-white mb-2 leading-tight drop-shadow-lg">
+                  {step.title}
+                </h3>
+
+                {/* Subtitle */}
+                <p className="text-base text-white/95 leading-relaxed drop-shadow-md">
+                  {step.subtitle}
+                </p>
+
+                {/* Bottom decoration line */}
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.15 + 0.5, duration: 0.8 }}
+                  className="mt-6 h-1 bg-white/30 rounded-full mx-auto"
+                  style={{ width: "60%" }}
+                />
+              </div>
+
+              {/* Shimmer effect on hover */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-[-200%] transition-transform duration-1000" />
+            </div>
+          </motion.div>
+
+          {/* Connector Arrow (except for last item) */}
+          {index < steps.length - 1 && (
+            <motion.div
+              initial={{ opacity: 0, scaleY: 0 }}
+              whileInView={{ opacity: 1, scaleY: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.15 + 0.6, duration: 0.4 }}
+              className="flex justify-center py-4"
+            >
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="w-1 h-12 bg-gradient-to-b from-gray-300 to-gray-400 rounded-full relative"
+              >
+                {/* Arrow tip */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1">
+                  <div className="w-0 h-0 border-l-4 border-r-4 border-t-8 border-transparent border-t-gray-400" />
                 </div>
               </motion.div>
-            </div>
-
-            {/* Connecting line segment */}
-            {index < steps.length - 1 && (
-              <motion.div
-                initial={{ scaleY: 0 }}
-                whileInView={{ scaleY: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15 + 0.5, duration: 0.4 }}
-                className="absolute right-1/2 transform translate-x-1/2 w-0.5 bg-gradient-to-b from-current to-transparent h-6 top-full"
-                style={{ color: step.color }}
-              />
-            )}
-          </motion.div>
-        ))}
-      </div>
+            </motion.div>
+          )}
+        </motion.div>
+      ))}
     </div>
   );
 }

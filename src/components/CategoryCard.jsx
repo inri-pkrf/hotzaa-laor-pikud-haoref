@@ -16,7 +16,7 @@ export default function CategoryCard({ category, index }) {
       <Link to={`${createPageUrl("Category")}?id=${category.id}`} className="block h-full">
         <div
           className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 h-full"
-          style={{ aspectRatio: "3/4", minHeight: "400px" }}
+          style={{ aspectRatio: "1/1" }}
         >
           {/* Background Image */}
           <div className="absolute inset-0">
@@ -41,7 +41,7 @@ export default function CategoryCard({ category, index }) {
               </h3>
 
               {/* Description */}
-              <p className="text-white/90 text-base leading-relaxed line-clamp-4">
+              <p className="text-white/90 text-sm leading-relaxed line-clamp-3">
                 {category.description}
               </p>
             </div>
