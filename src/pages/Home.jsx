@@ -1,9 +1,8 @@
-
 import React, { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import CategoryCard from "../components/CategoryCard";
 import WorkflowProcess from "../components/WorkflowProcess";
-import { BookOpen, Book, Award, Sticker, Printer } from "lucide-react";
+import { BookOpen, Book, Award, Sticker, Printer, FileText, Scroll, Notebook, Flame, Flag, Medal } from "lucide-react";
 
 const categories = [
   {
@@ -61,6 +60,15 @@ const galleryImages = [
   { url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80", span: "col-span-1" },
   { url: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80", span: "row-span-2" },
   { url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80", span: "col-span-1" },
+];
+
+const features = [
+  { icon: Notebook, label: "מחברות", color: "rgb(255, 180, 80)" },
+  { icon: FileText, label: "חוברות", color: "rgb(39, 64, 111)" },
+  { icon: BookOpen, label: "ספר", color: "rgb(39, 64, 111)" },
+  { icon: Flame, label: "סובלימציה", color: "rgb(67, 187, 144)" },
+  { icon: Flag, label: "רולאפ", color: "rgb(153, 24, 99)" },
+  { icon: Medal, label: "תעודות", color: "rgb(98, 100, 100)" },
 ];
 
 export default function Home() {
@@ -176,40 +184,76 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="text-5xl md:text-6xl font-bold text-gray-900 mb-8"
             >
-              חזון הוצל"א פקע"ר
+              ברוכים הבאים והבאות להוצל"א פקע"ר
             </motion.h2>
+            
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="max-w-4xl mx-auto space-y-6 text-lg text-gray-700 leading-relaxed"
+              className="max-w-4xl mx-auto space-y-8"
             >
-              <motion.p
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                אם אתם מחפשים פתרונות הדפסה איכותיים- רולאפים, סובלימציה, ספרים או חוברות- אנחנו כאן כדי להפוך את הרעיונות שלכם למציאות.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-              >
-                בית הדפוס וההוצאה לאור פקע"ר מציע לכם שירות מקצועי, טכנולוגיות הדפסה מתקדמות וצוות מנוסה שמבטיח איכות ללא פשרות. אנו מקפידים על דיוק, חדשנות וליווי אישי לכל לקוח.
-              </motion.p>
+              {/* Bold text */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.7 }}
-                className="font-semibold text-gray-900"
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-xl font-bold text-gray-900 leading-relaxed"
               >
-                שמחים להציג לפניכם את הקטלוג החדש של הוצאה לאור פיקוד העורף- מוזמנים להתרשם מהמגוון הרחב שלנו!
+                מחפשים פתרונות הדפסה איכותיים - אנחנו כאן כדי להפוך את הרעיונות שלכם למציאות
               </motion.p>
+
+              {/* Icons Row */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex justify-center items-center gap-8 flex-wrap py-6"
+              >
+                {features.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                    className="flex flex-col items-center gap-2"
+                  >
+                    <div
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg transition-transform hover:scale-110"
+                      style={{ backgroundColor: feature.color }}
+                    >
+                      <feature.icon className="w-8 h-8 text-white" />
+                    </div>
+                    <span className="text-sm font-medium text-gray-700">{feature.label}</span>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {/* Regular paragraphs */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="space-y-4 text-lg text-gray-700 leading-relaxed"
+              >
+                <p>
+                  בית הדפוס הפיקודי מציע לכם שירות מקצועי, עם טכנולוגיות הדפסה מתקדמות וצוות מנוסה שמבטיח איכות ללא פשרות.
+                </p>
+                <p>
+                  אנו מקפידים על דיוק, חדשנות וליווי אישי לכל לקוח.
+                </p>
+                <p className="font-semibold text-gray-900">
+                  שמחים להציג לפניכם את הקטלוג החדש של ההוצאה לאור של פיקוד העורף - מוזמנים להתרשם מהמגוון הרחב שלנו!
+                </p>
+                <p className="text-xl font-bold text-[rgb(34,179,225)]">
+                  צרו איתנו קשר להזמנות
+                </p>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>
