@@ -11,12 +11,12 @@ export default function CategoryCard({ category, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group h-full"
+      className="group"
+      style={{ height: "400px" }}
     >
       <Link to={`${createPageUrl("Category")}?id=${category.id}`} className="block h-full">
         <div
-          className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 h-full"
-          style={{ aspectRatio: "1/1" }}
+          className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 h-full flex flex-col"
         >
           {/* Background Image */}
           <div className="absolute inset-0">
@@ -29,7 +29,7 @@ export default function CategoryCard({ category, index }) {
 
           {/* Content */}
           <div className="relative h-full p-6 flex flex-col justify-between">
-            <div>
+            <div className="flex-1 flex flex-col">
               {/* Icon */}
               <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <category.icon className="w-7 h-7 text-white" />
@@ -40,10 +40,12 @@ export default function CategoryCard({ category, index }) {
                 {category.name}
               </h3>
 
-              {/* Description */}
-              <p className="text-white/90 text-sm leading-relaxed line-clamp-3">
-                {category.description}
-              </p>
+              {/* Description - Fixed height container */}
+              <div className="flex-1 min-h-[60px]">
+                <p className="text-white/90 text-sm leading-relaxed line-clamp-3">
+                  {category.description}
+                </p>
+              </div>
             </div>
 
             {/* Arrow */}
