@@ -240,26 +240,21 @@ export default function Layout({ children, currentPageName }) {
       {/* Footer */}
       <footer className="bg-gradient-to-l from-gray-900 to-gray-800 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="text-center md:text-right">
-              <h3 className="text-2xl font-bold mb-2">קטלוג מוצרים</h3>
-              <p className="text-gray-300">לוגו 2025</p>
-            </div>
-            <div className="flex gap-8">
-              <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/5d0ed06d1_collegeLogoText.png"
-                alt="לוגו המכללה"
-                className="h-16 w-auto"
-              />
-              <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/9d0f053f3_.png"
-                alt="לוגו הוצאה לאור"
-                className="h-16 w-auto"
-              />
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
-            <p>© 2025 הוצאה לאור פיקוד העורף. כל הזכויות שמורות.</p>
+          <div className="flex flex-col items-center gap-6">
+            {/* Logo */}
+            <img
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/9d0f053f3_.png"
+              alt="לוגו הוצאה לאור"
+              className="h-20 w-auto"
+            />
+            
+            {/* Catalog Text */}
+            <h3 className="text-2xl font-bold">קטלוג מוצרים</h3>
+            
+            {/* Copyright */}
+            <p className="text-sm text-gray-400">
+              כל הזכויות שמורות להוצאה לאור פיקוד העורף © 2025
+            </p>
           </div>
         </div>
       </footer>

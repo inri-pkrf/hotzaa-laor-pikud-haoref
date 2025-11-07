@@ -47,71 +47,55 @@ export default function WorkflowProcess() {
         {steps.map((step, index) => (
           <React.Fragment key={index}>
             <motion.div
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="relative"
             >
-              <div className="flex items-center gap-8 md:gap-12">
-                {/* Step Card */}
-                <motion.div
-                  whileHover={{ scale: 1.03, y: -5 }}
-                  className={`relative flex-1 bg-gradient-to-br ${step.bgGradient} rounded-3xl p-8 shadow-2xl overflow-hidden group`}
-                >
-                  {/* Background Pattern */}
-                  <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-0 right-0 w-40 h-40 bg-white rounded-full -mr-20 -mt-20" />
-                    <div className="absolute bottom-0 left-0 w-32 h-32 bg-white rounded-full -ml-16 -mb-16" />
+              {/* Step Card */}
+              <motion.div
+                whileHover={{ scale: 1.03, y: -5 }}
+                className={`relative bg-gradient-to-br ${step.bgGradient} rounded-3xl p-8 shadow-2xl overflow-hidden group`}
+              >
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-0 right-0 w-40 h-40 bg-white rounded-full -mr-20 -mt-20" />
+                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-white rounded-full -ml-16 -mb-16" />
+                </div>
+
+                {/* Content - Centered */}
+                <div className="relative z-10 text-center">
+                  {/* Icon */}
+                  <motion.div
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.6 }}
+                    className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg"
+                  >
+                    <step.icon className="w-10 h-10 text-white" />
+                  </motion.div>
+
+                  {/* Number */}
+                  <div className="mb-3">
+                    <span className="text-5xl font-bold text-white/40">
+                      {step.number}
+                    </span>
                   </div>
 
-                  {/* Content */}
-                  <div className="relative z-10">
-                    <div className="flex items-start gap-6">
-                      {/* Icon */}
-                      <motion.div
-                        whileHover={{ rotate: 360, scale: 1.1 }}
-                        transition={{ duration: 0.6 }}
-                        className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg"
-                      >
-                        <step.icon className="w-10 h-10 text-white" />
-                      </motion.div>
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold text-white mb-2 leading-tight">
+                    {step.title}
+                  </h3>
 
-                      {/* Text Content */}
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-3">
-                          <span className="text-5xl font-bold text-white/40">
-                            {step.number}
-                          </span>
-                        </div>
-                        <h3 className="text-2xl font-bold text-white mb-2 leading-tight">
-                          {step.title}
-                        </h3>
-                        <p className="text-white/90 text-base leading-relaxed">
-                          {step.subtitle}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                  {/* Subtitle */}
+                  <p className="text-white/90 text-base leading-relaxed">
+                    {step.subtitle}
+                  </p>
+                </div>
 
-                  {/* Shine Effect on Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-[-200%] transition-transform duration-1000" />
-                </motion.div>
-
-                {/* Center Circle (hidden on mobile) */}
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 200 }}
-                  className="hidden md:block absolute right-1/2 transform translate-x-1/2 w-16 h-16 rounded-full bg-gradient-to-br shadow-xl z-10 flex items-center justify-center"
-                  style={{
-                    background: `linear-gradient(135deg, ${step.color}, ${step.color}dd)`,
-                  }}
-                >
-                  <span className="text-2xl font-bold text-white">{step.number}</span>
-                </motion.div>
-              </div>
+                {/* Shine Effect on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-[-200%] transition-transform duration-1000" />
+              </motion.div>
             </motion.div>
 
             {/* Arrow Between Steps (except last) */}
