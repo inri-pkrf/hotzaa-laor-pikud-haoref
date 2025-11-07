@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import CategoryCard from "../components/CategoryCard";
@@ -291,7 +292,7 @@ export default function Home() {
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.8 }}
         className="py-12"
-        style={{ background: 'rgb(0, 88, 131)' }}
+        style={{ background: 'linear-gradient(135deg, #1a472a, #2B3E6F)' }}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div

@@ -1,3 +1,4 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, MessageCircle, Clock, Info } from "lucide-react";
@@ -10,7 +11,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero */}
-      <section style={{ background: 'linear-gradient(135deg, rgb(0, 88, 131), rgb(34, 179, 225))' }} className="py-24">
+      <section style={{ background: 'linear-gradient(135deg, #1a472a, #2B3E6F)' }} className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
@@ -233,7 +234,7 @@ export default function Layout({ children, currentPageName }) {
       <main>{children}</main>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-l from-gray-900 to-gray-800 text-white py-12">
+      <footer className="text-white py-12" style={{ background: 'linear-gradient(to left, #2B3E6F, #1a2847)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-6">
             {/* Logo */}
