@@ -53,13 +53,19 @@ export default function Layout({ children, currentPageName }) {
     setIsMobileMenuOpen(false);
     
     if (page === "Home" && !section) {
-      window.location.href = createPageUrl("Home");
+      // Navigate to home page
+      navigate(createPageUrl("Home"));
     } else if (currentPageName === "Home" && section) {
+      // Already on home page, just scroll to section
       setTimeout(() => scrollToSection(section), 100);
     } else if (page === "Home" && section) {
-      window.location.href = createPageUrl("Home") + "#" + section;
+      // Navigate to home page, then scroll to section
+      navigate(createPageUrl("Home"));
+      // Delay scrolling to ensure the Home page has rendered
+      setTimeout(() => scrollToSection(section), 300);
     } else {
-      window.location.href = createPageUrl(page);
+      // Navigate to other page
+      navigate(createPageUrl(page));
     }
   };
 

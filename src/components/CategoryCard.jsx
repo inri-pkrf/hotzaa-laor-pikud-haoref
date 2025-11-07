@@ -25,6 +25,13 @@ export default function CategoryCard({ category, index }) {
               alt={category.name}
               className="w-full h-full object-cover"
             />
+            {/* Color Overlay */}
+            <div 
+              className="absolute inset-0" 
+              style={{ 
+                background: `linear-gradient(135deg, ${category.color}dd, ${category.color}aa)` 
+              }}
+            />
           </div>
 
           {/* Content */}
