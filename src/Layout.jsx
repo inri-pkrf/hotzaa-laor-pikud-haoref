@@ -1,7 +1,17 @@
+
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { Menu, X, ChevronDown } from "lucide-react";
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Book, // Added for categories
+  NotebookPen, // Added for categories
+  Award, // Added for categories
+  Tag, // Added for categories
+  Printer, // Added for categories
+} from "lucide-react";
 import { motion } from "framer-motion";
 import {
   DropdownMenu,
@@ -11,11 +21,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const categories = [
-  { id: 1, name: "ספרים וחוברות", color: "rgb(39, 64, 111)" },
-  { id: 2, name: "מחברות ופנקסים", color: "rgb(255, 180, 80)" },
-  { id: 3, name: "תעודות וברכות", color: "rgb(98, 100, 100)" },
-  { id: 4, name: "מדבקות ורולאפ", color: "rgb(153, 24, 99)" },
-  { id: 5, name: "הדפסה על מוצרים", color: "rgb(67, 187, 144)" },
+  { id: 1, name: "ספרים וחוברות", color: "rgb(39, 64, 111)", icon: Book },
+  { id: 2, name: "מחברות ופנקסים", color: "rgb(255, 180, 80)", icon: NotebookPen },
+  { id: 3, name: "תעודות וברכות", color: "rgb(98, 100, 100)", icon: Award },
+  { id: 4, name: "מדבקות ורולאפ", color: "rgb(153, 24, 99)", icon: Tag },
+  { id: 5, name: "הדפסה על מוצרים", color: "rgb(67, 187, 144)", icon: Printer },
 ];
 
 export default function Layout({ children, currentPageName }) {
@@ -109,25 +119,34 @@ export default function Layout({ children, currentPageName }) {
               </button>
 
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-gray-700 font-medium transition-colors cursor-pointer">
+                <DropdownMenuTrigger className="flex items-center gap-1 text-gray-700 font-medium transition-colors cursor-pointer outline-none">
                   המוצרים שלנו
                   <ChevronDown className="w-4 h-4" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56">
-                  {categories.map((category) => (
-                    <DropdownMenuItem key={category.id} asChild>
-                      <Link
-                        to={`${createPageUrl("Category")}?id=${category.id}`}
-                        className="cursor-pointer"
-                      >
-                        <div
-                          className="w-3 h-3 rounded-full ml-2"
-                          style={{ backgroundColor: category.color }}
-                        />
-                        {category.name}
-                      </Link>
-                    </DropdownMenuItem>
-                  ))}
+                <DropdownMenuContent 
+                  align="end" 
+                  className="w-72 p-4 bg-white/95 backdrop-blur-xl border-gray-200/50 shadow-2xl rounded-2xl"
+                >
+                  <div className="space-y-1">
+                    {categories.map((category) => (
+                      <DropdownMenuItem key={category.id} asChild>
+                        <Link
+                          to={`${createPageUrl("Category")}?id=${category.id}`}
+                          className="flex items-center gap-4 cursor-pointer px-4 py-4 rounded-xl transition-all duration-300 hover:bg-gradient-to-l hover:from-gray-50 hover:to-white group"
+                        >
+                          <div
+                            className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl"
+                            style={{ backgroundColor: category.color }}
+                          >
+                            <category.icon className="w-6 h-6 text-white" />
+                          </div>
+                          <span className="text-base font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
+                            {category.name}
+                          </span>
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </div>
                 </DropdownMenuContent>
               </DropdownMenu>
 
