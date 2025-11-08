@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
@@ -53,6 +54,11 @@ export default function Layout({ children, currentPageName }) {
       // Navigate to other page
       window.location.href = createPageUrl(page);
     }
+  };
+
+  const handleCategoryClick = (categoryId) => {
+    setIsMobileMenuOpen(false);
+    window.location.href = `${createPageUrl("Category")}?id=${categoryId}`;
   };
 
   const handleWhatsApp = () => {
@@ -122,9 +128,9 @@ export default function Layout({ children, currentPageName }) {
                   <div className="space-y-1">
                     {categories.map((category) => (
                       <DropdownMenuItem key={category.id} asChild>
-                        <Link
-                          to={`${createPageUrl("Category")}?id=${category.id}`}
-                          className="flex items-center gap-4 cursor-pointer px-4 py-4 rounded-xl transition-all duration-300 hover:bg-gradient-to-l hover:from-gray-50 hover:to-white group"
+                        <button
+                          onClick={() => handleCategoryClick(category.id)}
+                          className="flex items-center gap-4 cursor-pointer px-4 py-4 rounded-xl transition-all duration-300 hover:bg-gradient-to-l hover:from-gray-50 hover:to-white group w-full"
                         >
                           <div
                             className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl"
@@ -135,7 +141,7 @@ export default function Layout({ children, currentPageName }) {
                           <span className="text-base font-medium text-gray-700 group-hover:text-gray-900 transition-colors">
                             {category.name}
                           </span>
-                        </Link>
+                        </button>
                       </DropdownMenuItem>
                     ))}
                   </div>
@@ -204,18 +210,17 @@ export default function Layout({ children, currentPageName }) {
                 </p>
                 <div className="space-y-2 pr-4">
                   {categories.map((category) => (
-                    <Link
+                    <button
                       key={category.id}
-                      to={`${createPageUrl("Category")}?id=${category.id}`}
-                      className="flex items-center gap-2 text-gray-700 py-1"
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={() => handleCategoryClick(category.id)}
+                      className="flex items-center gap-2 text-gray-700 py-1 w-full text-right"
                     >
                       <div
                         className="w-3 h-3 rounded-full"
                         style={{ backgroundColor: category.color }}
                       />
                       {category.name}
-                    </Link>
+                    </button>
                   ))}
                 </div>
               </div>
