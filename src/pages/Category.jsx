@@ -1,3 +1,4 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -162,6 +163,7 @@ export default function Category() {
                       <ProductCard
                         key={product.id}
                         product={product}
+                        categoryColor={category.color}
                         index={index}
                       />
                     ))}

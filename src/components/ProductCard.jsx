@@ -1,11 +1,10 @@
-
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Download, BookOpen, Sparkles, FileText, ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
 
-export default function ProductCard({ product, index }) {
+export default function ProductCard({ product, categoryColor, index }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   // Combine main image with additional images
@@ -29,6 +28,20 @@ export default function ProductCard({ product, index }) {
     const message = encodeURIComponent(`שלום, אני מעוניין להזמין את המוצר: ${product.title}${product.code ? ` (קוד: ${product.code})` : ''}`);
     window.open(`https://wa.me/972501234567?text=${message}`, '_blank');
   };
+
+  // Helper function to lighten/darken color
+  const adjustColor = (color, amount) => {
+    const clamp = (num) => Math.min(255, Math.max(0, num));
+    const rgbMatch = color.match(/\d+/g);
+    if (!rgbMatch) return color;
+    
+    const [r, g, b] = rgbMatch.map(Number);
+    return `rgb(${clamp(r + amount)}, ${clamp(g + amount)}, ${clamp(b + amount)})`;
+  };
+
+  // Create gradient colors based on category color
+  const gradientStart = categoryColor;
+  const gradientEnd = adjustColor(categoryColor, -40);
 
   return (
     <motion.div
@@ -111,7 +124,7 @@ export default function ProductCard({ product, index }) {
           <div className="space-y-2 text-right">
             {product.binding && (
               <div className="flex items-center gap-2.5 text-gray-700">
-                <BookOpen className="w-5 h-5 text-[rgb(34,179,225)] flex-shrink-0" />
+                <BookOpen className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
                 <div className="flex-1">
                   <span className="text-sm font-bold">כריכה:</span>
                   <span className="text-sm mr-1.5">{product.binding}</span>
@@ -120,7 +133,7 @@ export default function ProductCard({ product, index }) {
             )}
             {product.finish && (
               <div className="flex items-center gap-2.5 text-gray-700">
-                <Sparkles className="w-5 h-5 text-[rgb(34,179,225)] flex-shrink-0" />
+                <Sparkles className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
                 <div className="flex-1">
                   <span className="text-sm font-bold">גימור:</span>
                   <span className="text-sm mr-1.5">{product.finish}</span>
@@ -129,7 +142,7 @@ export default function ProductCard({ product, index }) {
             )}
             {product.pages && (
               <div className="flex items-center gap-2.5 text-gray-700">
-                <FileText className="w-5 h-5 text-[rgb(34,179,225)] flex-shrink-0" />
+                <FileText className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
                 <div className="flex-1">
                   <span className="text-sm font-bold">עמודים:</span>
                   <span className="text-sm mr-1.5">{product.pages}</span>
@@ -141,8 +154,13 @@ export default function ProductCard({ product, index }) {
           {/* Price Section */}
           {product.price_info && (
             <div className="relative overflow-hidden rounded-xl p-3 mt-auto">
-              {/* Animated Background with Green-Blue Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-500 animate-gradient-x" />
+              {/* Animated Background with Category Color Gradient */}
+              <div 
+                className="absolute inset-0"
+                style={{ 
+                  background: `linear-gradient(135deg, ${gradientStart}, ${gradientEnd})` 
+                }}
+              />
               <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
               
               {/* Content */}
@@ -161,12 +179,15 @@ export default function ProductCard({ product, index }) {
 
           {/* Action Buttons */}
           <div className="space-y-2">
-            {/* WhatsApp Button */}
+            {/* WhatsApp Button with Category Color */}
             <motion.button
               onClick={handleWhatsApp}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-[#25D366] to-[#20BD5A] text-white py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="w-full flex items-center justify-center gap-2 text-white py-2.5 rounded-xl font-semibold text-sm transition-all duration-300 shadow-lg hover:shadow-xl"
+              style={{ 
+                background: `linear-gradient(135deg, ${gradientStart}, ${gradientEnd})` 
+              }}
             >
               <MessageCircle className="w-4 h-4" />
               <span>הזמינו עכשיו</span>
@@ -178,7 +199,19 @@ export default function ProductCard({ product, index }) {
                 onClick={handleDownload}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full flex items-center justify-center gap-2 bg-white border-2 border-gray-200 text-gray-700 py-2.5 rounded-xl font-medium text-sm hover:border-[rgb(34,179,225)] hover:text-[rgb(34,179,225)] transition-all duration-300"
+                className="w-full flex items-center justify-center gap-2 bg-white border-2 text-gray-700 py-2.5 rounded-xl font-medium text-sm hover:text-white transition-all duration-300"
+                style={{ 
+                  borderColor: categoryColor,
+                  color: categoryColor
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = `linear-gradient(135deg, ${gradientStart}, ${gradientEnd})`;
+                  e.currentTarget.style.color = 'white';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'white';
+                  e.currentTarget.style.color = categoryColor;
+                }}
               >
                 <Download className="w-4 h-4" />
                 <span>הורדת גריד</span>
@@ -187,21 +220,6 @@ export default function ProductCard({ product, index }) {
           </div>
         </div>
       </Card>
-
-      <style jsx>{`
-        @keyframes gradient-x {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-        .animate-gradient-x {
-          background-size: 200% 200%;
-          animation: gradient-x 3s ease infinite;
-        }
-      `}</style>
     </motion.div>
   );
 }
