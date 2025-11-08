@@ -195,58 +195,68 @@ export default function Layout({ children, currentPageName }) {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t shadow-lg">
-            <div className="px-4 py-4 space-y-3">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="lg:hidden bg-white/95 backdrop-blur-xl border-t shadow-2xl"
+          >
+            <div className="px-4 py-6 space-y-4 max-h-[80vh] overflow-y-auto">
               <button
                 onClick={() => handleNavigation("Home")}
-                className="block w-full text-right px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
+                className="block w-full text-right px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-xl font-medium transition-all"
               >
                 עמוד הבית
               </button>
 
-              <div className="px-4 py-2">
-                <p className="text-sm font-semibold text-gray-500 mb-2">
+              <div className="py-2">
+                <p className="text-sm font-bold text-gray-900 mb-4 px-4">
                   המוצרים שלנו
                 </p>
-                <div className="space-y-2 pr-4">
+                <div className="space-y-2">
                   {categories.map((category) => (
-                    <button
+                    <motion.button
                       key={category.id}
                       onClick={() => handleCategoryClick(category.id)}
-                      className="flex items-center gap-2 text-gray-700 py-1 w-full text-right"
+                      whileTap={{ scale: 0.98 }}
+                      className="flex items-center gap-4 w-full px-4 py-4 rounded-xl transition-all duration-300 hover:bg-gradient-to-l hover:from-gray-50 hover:to-white group"
                     >
                       <div
-                        className="w-3 h-3 rounded-full"
+                        className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl flex-shrink-0"
                         style={{ backgroundColor: category.color }}
-                      />
-                      {category.name}
-                    </button>
+                      >
+                        <category.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <span className="text-base font-medium text-gray-700 group-hover:text-gray-900 transition-colors text-right">
+                        {category.name}
+                      </span>
+                    </motion.button>
                   ))}
                 </div>
               </div>
 
               <button
                 onClick={() => handleNavigation("Home", "process")}
-                className="block w-full text-right px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
+                className="block w-full text-right px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-xl font-medium transition-all"
               >
                 תהליך עבודה
               </button>
 
               <button
                 onClick={() => handleNavigation("Home", "gallery")}
-                className="block w-full text-right px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
+                className="block w-full text-right px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-xl font-medium transition-all"
               >
                 גלריית עבודות
               </button>
 
               <button
                 onClick={() => handleNavigation("Contact")}
-                className="block w-full text-right px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg font-medium"
+                className="block w-full text-right px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-xl font-medium transition-all"
               >
                 יצירת קשר
               </button>
             </div>
-          </div>
+          </motion.div>
         )}
       </nav>
 
