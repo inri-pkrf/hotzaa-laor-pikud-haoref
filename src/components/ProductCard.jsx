@@ -126,20 +126,13 @@ export default function ProductCard({ product, categoryColor, index }) {
               <div className="absolute top-4 left-4 flex items-center gap-2 bg-black/70 backdrop-blur-md px-4 py-2 rounded-full z-10">
                 <span className="text-xs font-bold text-white tracking-wider">{product.code}</span>
                 {colorType === 'color' && (
-                  <div className="flex items-center gap-1">
-                    <Circle className="w-2.5 h-2.5 fill-red-500 text-red-500" />
-                    <Circle className="w-2.5 h-2.5 fill-yellow-400 text-yellow-400" />
-                    <Circle className="w-2.5 h-2.5 fill-blue-500 text-blue-500" />
-                  </div>
+                  <span className="text-xs font-bold text-white">| צבע</span>
                 )}
                 {colorType === 'bw' && (
-                  <div className="flex items-center gap-1">
-                    <Circle className="w-2.5 h-2.5 fill-white text-white" />
-                    <Circle className="w-2.5 h-2.5 fill-gray-800 text-gray-800" />
-                  </div>
+                  <span className="text-xs font-bold text-white">| שחור לבן</span>
                 )}
                 {colorType === 'sublimation' && (
-                  <Sparkles className="w-4 h-4 text-cyan-400" />
+                  <span className="text-xs font-bold text-white">| סובלימציה</span>
                 )}
               </div>
             )}
