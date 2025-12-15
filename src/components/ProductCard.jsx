@@ -176,6 +176,33 @@ export default function ProductCard({ product, categoryColor, index }) {
                 </div>
               </div>
             )}
+            {product.height && (
+              <div className="flex items-center gap-2.5 text-gray-700">
+                <FileText className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
+                <div className="flex-1">
+                  <span className="text-sm font-bold">גובה:</span>
+                  <span className="text-sm mr-1.5">{product.height}</span>
+                </div>
+              </div>
+            )}
+            {product.width && (
+              <div className="flex items-center gap-2.5 text-gray-700">
+                <FileText className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
+                <div className="flex-1">
+                  <span className="text-sm font-bold">רוחב:</span>
+                  <span className="text-sm mr-1.5">{product.width}</span>
+                </div>
+              </div>
+            )}
+            {product.material && (
+              <div className="flex items-center gap-2.5 text-gray-700">
+                <Sparkles className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
+                <div className="flex-1">
+                  <span className="text-sm font-bold">חומר:</span>
+                  <span className="text-sm mr-1.5">{product.material}</span>
+                </div>
+              </div>
+            )}
             {product.note && (
               <div className="flex items-center gap-2.5 text-gray-700">
                 <FileText className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
@@ -185,7 +212,7 @@ export default function ProductCard({ product, categoryColor, index }) {
                 </div>
               </div>
             )}
-          </div>
+            </div>
 
           {/* Price Section */}
           {product.price_info && (
