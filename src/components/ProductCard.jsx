@@ -194,6 +194,60 @@ export default function ProductCard({ product, categoryColor, index }) {
                 </div>
               </div>
             )}
+            {product.length && (
+              <div className="flex items-center gap-2.5 text-gray-700">
+                <FileText className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
+                <div className="flex-1">
+                  <span className="text-sm font-bold">אורך:</span>
+                  <span className="text-sm mr-1.5">{product.length}</span>
+                </div>
+              </div>
+            )}
+            {product.thickness && (
+              <div className="flex items-center gap-2.5 text-gray-700">
+                <FileText className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
+                <div className="flex-1">
+                  <span className="text-sm font-bold">עובי:</span>
+                  <span className="text-sm mr-1.5">{product.thickness}</span>
+                </div>
+              </div>
+            )}
+            {product.diameter && (
+              <div className="flex items-center gap-2.5 text-gray-700">
+                <FileText className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
+                <div className="flex-1">
+                  <span className="text-sm font-bold">קוטר:</span>
+                  <span className="text-sm mr-1.5">{product.diameter}</span>
+                </div>
+              </div>
+            )}
+            {product.print_area && (
+              <div className="flex items-center gap-2.5 text-gray-700">
+                <FileText className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
+                <div className="flex-1">
+                  <span className="text-sm font-bold">שטח הדפסה:</span>
+                  <span className="text-sm mr-1.5">{product.print_area}</span>
+                </div>
+              </div>
+            )}
+            {product.color && (
+              <div className="flex items-center gap-2.5 text-gray-700">
+                <Sparkles className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
+                <div className="flex-1">
+                  <span className="text-sm font-bold">צבע:</span>
+                  <span className="text-sm mr-1.5">{product.color}</span>
+                </div>
+              </div>
+            )}
+            {product.paper && (
+              <div className="flex items-center gap-2.5 text-gray-700">
+                <FileText className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
+                <div className="flex-1">
+                  <span className="text-sm font-bold">נייר:</span>
+                  <span className="text-sm mr-1.5">{product.paper}</span>
+                </div>
+              </div>
+            )}
             {product.material && (
               <div className="flex items-center gap-2.5 text-gray-700">
                 <Sparkles className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
