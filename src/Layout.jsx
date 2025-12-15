@@ -19,6 +19,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useSiteContent } from "@/components/SiteContent";
+import { base44 } from "@/api/base44Client";
 
 const categories = [
   { id: 1, name: "ספרים וחוברות", color: "rgb(39, 64, 111)", icon: Book },
@@ -31,8 +32,13 @@ const categories = [
 export default function Layout({ children, currentPageName }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const { getContent } = useSiteContent();
+
+  useEffect(() => {
+    base44.auth.me().then(setUser).catch(() => setUser(null));
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -169,7 +175,16 @@ export default function Layout({ children, currentPageName }) {
               >
                 יצירת קשר
               </button>
-            </div>
+
+              {user?.role === 'admin' && (
+                <button
+                  onClick={() => handleNavigation("Settings")}
+                  className="text-gray-700 font-medium transition-colors cursor-pointer"
+                >
+                  הגדרות
+                </button>
+              )}
+              </div>
 
             {/* Left Logo - הוצאה לאור */}
             <div className="flex items-center">
@@ -256,10 +271,19 @@ export default function Layout({ children, currentPageName }) {
               >
                 יצירת קשר
               </button>
-            </div>
-          </motion.div>
-        )}
-      </nav>
+
+              {user?.role === 'admin' && (
+                <button
+                  onClick={() => handleNavigation("Settings")}
+                  className="block w-full text-right px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-xl font-medium transition-all"
+                >
+                  הגדרות
+                </button>
+              )}
+              </div>
+              </motion.div>
+              )}
+              </nav>
 
       {/* Main content */}
       <main>{children}</main>
