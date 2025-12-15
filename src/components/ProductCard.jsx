@@ -2,9 +2,26 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Download, BookOpen, Sparkles, FileText, ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
+import { Download, BookOpen, Sparkles, FileText, ChevronLeft, ChevronRight, MessageCircle, Palette, Circle } from "lucide-react";
 
 export default function ProductCard({ product, categoryColor, index }) {
+  // Function to get color type based on product code
+  const getColorType = (code) => {
+    if (!code) return null;
+    const codeNum = code.toString();
+    
+    const colorCodes = ['101', '103', '104', '107', '109', '201', '202', '203', '204', '205', '206', '207', '301', '302', '303', '304', '401', '402', '403', '404', '405', '501', '504', '505', '506'];
+    const bwCodes = ['102', '106'];
+    const sublimationCodes = ['502', '503'];
+    
+    if (colorCodes.includes(codeNum)) return 'color';
+    if (bwCodes.includes(codeNum)) return 'bw';
+    if (sublimationCodes.includes(codeNum)) return 'sublimation';
+    
+    return null;
+  };
+  
+  const colorType = getColorType(product.code);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   // Combine main image with additional images
@@ -106,8 +123,24 @@ export default function ProductCard({ product, categoryColor, index }) {
 
             {/* Product Code Badge */}
             {product.code && (
-              <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-4 py-2 rounded-full z-10">
+              <div className="absolute top-4 left-4 flex items-center gap-2 bg-black/70 backdrop-blur-md px-4 py-2 rounded-full z-10">
                 <span className="text-xs font-bold text-white tracking-wider">{product.code}</span>
+                {colorType === 'color' && (
+                  <div className="flex items-center gap-1">
+                    <Circle className="w-2.5 h-2.5 fill-red-500 text-red-500" />
+                    <Circle className="w-2.5 h-2.5 fill-yellow-400 text-yellow-400" />
+                    <Circle className="w-2.5 h-2.5 fill-blue-500 text-blue-500" />
+                  </div>
+                )}
+                {colorType === 'bw' && (
+                  <div className="flex items-center gap-1">
+                    <Circle className="w-2.5 h-2.5 fill-white text-white" />
+                    <Circle className="w-2.5 h-2.5 fill-gray-800 text-gray-800" />
+                  </div>
+                )}
+                {colorType === 'sublimation' && (
+                  <Sparkles className="w-4 h-4 text-cyan-400" />
+                )}
               </div>
             )}
           </div>
