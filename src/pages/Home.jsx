@@ -11,7 +11,7 @@ const categories = [
     description: "הדפסת ספרים איכותיים, חוברות מקצועיות ומודפסים שמשדרים איכות",
     color: "rgb(39, 64, 111)",
     icon: BookOpen,
-    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/4a6837b03_Screenshot2025-11-06125614.png"
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/607465f09_image.png"
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const categories = [
     description: "מחברות ופנקסים מותאמים אישית לכל צורך - מעוצבים ומודפסים בקפידה",
     color: "rgb(255, 180, 80)",
     icon: Book,
-    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/07acab081_104.png"
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/0d3bb31d3_image.png"
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const categories = [
     description: "תעודות מעוצבות, כרטיסי ברכה ומוצרי נייר יוקרתיים לכל אירוע",
     color: "rgb(98, 100, 100)",
     icon: Award,
-    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/435c9f4cc_206.png"
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/6df92d623_image.png"
   },
   {
     id: 4,
@@ -35,7 +35,7 @@ const categories = [
     description: "מדבקות איכותיות, רולאפים וחומרי שיווק מעוצבים במגוון גדלים",
     color: "rgb(153, 24, 99)",
     icon: Sticker,
-    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/9b105bdf4_405.jpg"
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/957ecc4e0_image.png"
   },
   {
     id: 5,
@@ -43,7 +43,7 @@ const categories = [
     description: "הדפסה איכותית על מגוון מוצרים - ספלים, חולצות, תיקים ועוד",
     color: "rgb(67, 187, 144)",
     icon: Printer,
-    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/b4c74599b_505.jpg"
+    image: "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/4a6be04d9_image.png"
   },
 ];
 
