@@ -20,16 +20,13 @@ export default function CategoryCard({ category, index }) {
           style={{ backgroundColor: category.color }}
         >
           {/* Background Image */}
-          <div className="absolute inset-0 opacity-40">
+          <div className="absolute inset-0 opacity-30">
             <img
               src={category.image}
               alt={category.name}
               className="w-full h-full object-cover"
             />
           </div>
-          
-          {/* Dark Overlay for better text contrast */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-transparent" />
 
           {/* Content */}
           <div className="relative h-full p-6 flex flex-col justify-between">
