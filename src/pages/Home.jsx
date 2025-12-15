@@ -177,56 +177,22 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.2 }}
               className="max-w-4xl mx-auto space-y-8"
             >
-              {/* Bold text */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-xl font-bold text-gray-900 leading-relaxed"
-              >
-                מחפשים פתרונות הדפסה איכותיים - אנחנו כאן כדי להפוך את הרעיונות שלכם למציאות
-              </motion.p>
-
-              {/* Icons Row */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex justify-center items-center gap-8 flex-wrap py-6"
-              >
-                {features.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                    className="flex flex-col items-center gap-2"
-                  >
-                    <feature.icon className="w-12 h-12 text-gray-700" />
-                    <span className="text-sm font-medium text-gray-700">{feature.label}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
-
-              {/* Regular paragraphs */}
+              {/* Main text */}
               <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="space-y-4 text-lg text-gray-700 leading-relaxed"
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="space-y-6 text-lg text-gray-700 leading-relaxed"
               >
-                <p>
-                  בית הדפוס הפיקודי מציע לכם שירות מקצועי, עם טכנולוגיות הדפסה מתקדמות וצוות מנוסה שמבטיח איכות ללא פשרות.
+                <p className="text-xl font-bold text-gray-900">
+                  אם אתם מחפשים פתרונות הדפסה איכותיים - רולאפים, סובלימציה, ספרים או חוברות - אנחנו כאן כדי להפוך את הרעיונות שלכם למציאות!
                 </p>
                 <p>
-                  אנו מקפידים על דיוק, חדשנות וליווי אישי לכל לקוח.
+                  בית הדפוס וההוצאה לאור פקע"ר מציע לכם שירות מקצועי, טכנולוגיות הדפסה מתקדמות וצוות מנוסה שמבטיח איכות ללא פשרות. אנו מקפידים על דיוק, חדשנות וליווי אישי לכל לקוח.
                 </p>
                 <p className="font-semibold text-gray-900">
-                  שמחים להציג לפניכם את הקטלוג החדש של ההוצאה לאור של פיקוד העורף - מוזמנים להתרשם מהמגוון הרחב שלנו!
+                  שמחים להציג בפניכם את הקטלוג החדש של הוצאה לאור פיקוד העורף – מוזמנים להתרשם מהמגוון הרחב שלנו!
                 </p>
               </motion.div>
 
