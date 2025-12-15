@@ -131,6 +131,24 @@ export default function ProductCard({ product, categoryColor, index }) {
                 </div>
               </div>
             )}
+            {product.front_cover && (
+              <div className="flex items-center gap-2.5 text-gray-700">
+                <BookOpen className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
+                <div className="flex-1">
+                  <span className="text-sm font-bold">חזית:</span>
+                  <span className="text-sm mr-1.5">{product.front_cover}</span>
+                </div>
+              </div>
+            )}
+            {product.back_cover && (
+              <div className="flex items-center gap-2.5 text-gray-700">
+                <BookOpen className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
+                <div className="flex-1">
+                  <span className="text-sm font-bold">גב:</span>
+                  <span className="text-sm mr-1.5">{product.back_cover}</span>
+                </div>
+              </div>
+            )}
             {product.finish && (
               <div className="flex items-center gap-2.5 text-gray-700">
                 <Sparkles className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
