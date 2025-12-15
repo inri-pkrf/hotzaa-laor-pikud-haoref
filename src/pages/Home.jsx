@@ -312,6 +312,87 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Print Sizes Table Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+              מידות הדפסה
+            </h2>
+            <p className="text-xl text-gray-600">
+              טבלת מידות סטנדרטיות להדפסה
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="overflow-x-auto shadow-2xl rounded-2xl"
+          >
+            <table className="w-full bg-white">
+              <thead>
+                <tr className="bg-gradient-to-l from-[#2B3E6F] to-[#1a2847]">
+                  <th className="px-6 py-4 text-right text-white font-bold text-lg border-l border-white/20">
+                    גודל הדפסה
+                  </th>
+                  <th className="px-6 py-4 text-right text-white font-bold text-lg border-l border-white/20">
+                    מידות (ס"מ)
+                  </th>
+                  <th className="px-6 py-4 text-right text-white font-bold text-lg">
+                    כמות שנכנס על דף A4
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                  <td className="px-6 py-4 text-right font-semibold text-gray-900 border-l border-gray-200">A0</td>
+                  <td className="px-6 py-4 text-right text-gray-700 border-l border-gray-200">70×100</td>
+                  <td className="px-6 py-4 text-right text-gray-700">-</td>
+                </tr>
+                <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors bg-gray-50/50">
+                  <td className="px-6 py-4 text-right font-semibold text-gray-900 border-l border-gray-200">A1</td>
+                  <td className="px-6 py-4 text-right text-gray-700 border-l border-gray-200">60×80</td>
+                  <td className="px-6 py-4 text-right text-gray-700">-</td>
+                </tr>
+                <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                  <td className="px-6 py-4 text-right font-semibold text-gray-900 border-l border-gray-200">A2</td>
+                  <td className="px-6 py-4 text-right text-gray-700 border-l border-gray-200">42×60</td>
+                  <td className="px-6 py-4 text-right text-gray-700">-</td>
+                </tr>
+                <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors bg-gray-50/50">
+                  <td className="px-6 py-4 text-right font-semibold text-gray-900 border-l border-gray-200">A3</td>
+                  <td className="px-6 py-4 text-right text-gray-700 border-l border-gray-200">30×42</td>
+                  <td className="px-6 py-4 text-right text-gray-700">-</td>
+                </tr>
+                <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+                  <td className="px-6 py-4 text-right font-semibold text-gray-900 border-l border-gray-200">A4</td>
+                  <td className="px-6 py-4 text-right text-gray-700 border-l border-gray-200">21×30</td>
+                  <td className="px-6 py-4 text-right text-gray-700">-</td>
+                </tr>
+                <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors bg-gray-50/50">
+                  <td className="px-6 py-4 text-right font-semibold text-gray-900 border-l border-gray-200">A5</td>
+                  <td className="px-6 py-4 text-right text-gray-700 border-l border-gray-200">15×21</td>
+                  <td className="px-6 py-4 text-right text-gray-700">2 על עמוד | רווח של 0.5 ס"מ</td>
+                </tr>
+                <tr className="hover:bg-gray-50 transition-colors">
+                  <td className="px-6 py-4 text-right font-semibold text-gray-900 border-l border-gray-200">A6</td>
+                  <td className="px-6 py-4 text-right text-gray-700 border-l border-gray-200">10×14</td>
+                  <td className="px-6 py-4 text-right text-gray-700">4 על עמוד | רווח של 0.5 ס"מ</td>
+                </tr>
+              </tbody>
+            </table>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 }
