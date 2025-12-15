@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { createPageUrl } from "@/utils";
@@ -99,13 +98,13 @@ export default function Layout({ children, currentPageName }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Right Logo - מכללה */}
-            <div className="flex items-center">
+            <button onClick={() => handleNavigation("Home")} className="flex items-center cursor-pointer">
               <img
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_6885e537f90714e91be36212/5d0ed06d1_collegeLogoText.png"
                 alt="לוגו המכללה"
                 className="h-16 w-auto"
               />
-            </div>
+            </button>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
@@ -171,13 +170,13 @@ export default function Layout({ children, currentPageName }) {
             </div>
 
             {/* Left Logo - הוצאה לאור */}
-            <div className="flex items-center">
+            <button onClick={() => handleNavigation("Home")} className="flex items-center cursor-pointer">
               <img
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/977407d91_-.png"
                 alt="לוגו הוצאה לאור"
                 className="h-16 w-auto"
               />
-            </div>
+            </button>
 
             {/* Mobile menu button */}
             <button
