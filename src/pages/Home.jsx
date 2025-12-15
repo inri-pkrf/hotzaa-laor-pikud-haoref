@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import CategoryCard from "../components/CategoryCard";
@@ -151,32 +150,6 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Categories Section */}
-      <section id="categories" className="py-20 bg-[#FAFAF9]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
-              המוצרים שלנו
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              מגוון רחב של פתרונות הדפסה והוצאה לאור מקצועיים
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {categories.map((category, index) => (
-              <CategoryCard key={category.id} category={category} index={index} />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Vision Section */}
       <section id="vision" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -279,6 +252,32 @@ export default function Home() {
               </motion.div>
             </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Categories Section */}
+      <section id="categories" className="py-20 bg-[#FAFAF9]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+              המוצרים שלנו
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              מגוון רחב של פתרונות הדפסה והוצאה לאור מקצועיים
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            {categories.map((category, index) => (
+              <CategoryCard key={category.id} category={category} index={index} />
+            ))}
+          </div>
         </div>
       </section>
 
