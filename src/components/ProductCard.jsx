@@ -122,6 +122,15 @@ export default function ProductCard({ product, categoryColor, index }) {
 
           {/* Details with Icons - Compact */}
           <div className="space-y-2 text-right">
+            {product.size && (
+              <div className="flex items-center gap-2.5 text-gray-700">
+                <FileText className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
+                <div className="flex-1">
+                  <span className="text-sm font-bold">גודל:</span>
+                  <span className="text-sm mr-1.5">{product.size}</span>
+                </div>
+              </div>
+            )}
             {product.binding && (
               <div className="flex items-center gap-2.5 text-gray-700">
                 <BookOpen className="w-5 h-5 flex-shrink-0" style={{ color: categoryColor }} />
