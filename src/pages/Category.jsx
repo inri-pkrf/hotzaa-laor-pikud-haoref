@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -53,13 +52,12 @@ export default function Category() {
     enabled: !!categoryId,
   });
 
-  // Group products by size
-  const productsBySize = products.reduce((acc, product) => {
-    const size = product.size || "אחר";
-    if (!acc[size]) acc[size] = [];
-    acc[size].push(product);
-    return acc;
-  }, {});
+  // Sort products by code number
+  const sortedProducts = [...products].sort((a, b) => {
+    const codeA = parseInt(a.code) || 0;
+    const codeB = parseInt(b.code) || 0;
+    return codeA - codeB;
+  });
 
   if (!category) {
     return (
@@ -134,41 +132,14 @@ export default function Category() {
               </Link>
             </div>
           ) : (
-            <div className="space-y-16">
-              {Object.entries(productsBySize).map(([size, sizeProducts]) => (
-                <div key={size}>
-                  {/* Size Header */}
-                  <motion.div
-                    initial={{ opacity: 0, x: 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    className="mb-8"
-                  >
-                    <div
-                      className="inline-block px-8 py-3 rounded-full"
-                      style={{ backgroundColor: `${category.color}20` }}
-                    >
-                      <h2
-                        className="text-3xl font-bold"
-                        style={{ color: category.color }}
-                      >
-                        {size}
-                      </h2>
-                    </div>
-                  </motion.div>
-
-                  {/* Products Grid */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {sizeProducts.map((product, index) => (
-                      <ProductCard
-                        key={product.id}
-                        product={product}
-                        categoryColor={category.color}
-                        index={index}
-                      />
-                    ))}
-                  </div>
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {sortedProducts.map((product, index) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  categoryColor={category.color}
+                  index={index}
+                />
               ))}
             </div>
           )}
