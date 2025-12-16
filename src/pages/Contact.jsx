@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { MapPin, MessageCircle, Clock, Info } from "lucide-react";
+import { MapPin, MessageCircle, Clock, Info, Phone } from "lucide-react";
 
 export default function Contact() {
   const handleWhatsApp = () => {
@@ -35,7 +35,7 @@ export default function Contact() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Contact Methods */}
-          <div className="grid md:grid-cols-2 gap-8 mb-20 max-w-3xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 mb-20 max-w-5xl mx-auto">
             {/* WhatsApp */}
             <motion.button
               onClick={handleWhatsApp}
@@ -52,6 +52,20 @@ export default function Contact() {
               <p className="text-gray-600 text-sm" dir="ltr">052-932-2925</p>
               <p className="text-xs text-[#25D366] font-medium mt-2">לחצו לשיחה</p>
             </motion.button>
+
+            {/* Phone */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 }}
+              className="text-center"
+            >
+              <div className="mb-4 flex justify-center">
+                <Phone className="w-12 h-12 text-[rgb(0,88,131)]" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">טלפון נייח</h3>
+              <p className="text-gray-600 text-sm" dir="ltr">08-978-3976</p>
+            </motion.div>
 
             {/* Address */}
             <motion.div
