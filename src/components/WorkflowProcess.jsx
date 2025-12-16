@@ -5,7 +5,7 @@ import { FileText, DollarSign, CheckCircle, Package } from "lucide-react";
 const steps = [
   {
     number: "01",
-    title: "מילוי טבלת הזמנת עבודה",
+    title: "מילוי טבלת הזמנת עבודה ושליחתה לבית הדפוס",
     subtitle: "(במחשב סודי) + אישור בטיחון מידע",
     icon: FileText,
     gradient: "from-cyan-500 to-blue-600",
