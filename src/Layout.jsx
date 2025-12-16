@@ -267,8 +267,7 @@ export default function Layout({ children, currentPageName }) {
         {/* CTA Section */}
         <motion.section
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.5 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           className="py-16"
           style={{ background: 'linear-gradient(135deg, #1a472a, #2B3E6F)' }}
@@ -276,8 +275,7 @@ export default function Layout({ children, currentPageName }) {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">

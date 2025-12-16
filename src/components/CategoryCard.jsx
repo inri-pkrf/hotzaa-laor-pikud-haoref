@@ -7,13 +7,12 @@ import { ArrowLeft } from "lucide-react";
 export default function CategoryCard({ category, index }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group"
-      style={{ height: "400px" }}
-    >
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        className="group"
+        style={{ height: "400px" }}
+      >
       <Link to={`${createPageUrl("Category")}?id=${category.id}`} className="block h-full">
         <div
           className="relative overflow-hidden rounded-2xl shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 h-full flex flex-col"

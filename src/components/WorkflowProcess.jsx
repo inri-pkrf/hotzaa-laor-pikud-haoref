@@ -40,8 +40,7 @@ export default function WorkflowProcess() {
         <motion.div
           key={index}
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, amount: 0.5 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ 
             duration: 0.6, 
             delay: index * 0.15,
@@ -80,14 +79,13 @@ export default function WorkflowProcess() {
 
               {/* Content */}
               <div className="relative z-10">
-                {/* Number Badge - Top Right */}
-                <motion.div
-                  initial={{ scale: 0, rotate: -180 }}
-                  whileInView={{ scale: 1, rotate: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 + 0.3, type: "spring", stiffness: 200 }}
-                  className="absolute top-0 right-0 flex items-center justify-center w-20 h-20 bg-white/30 backdrop-blur-md rounded-full shadow-xl"
-                >
+                  {/* Number Badge - Top Right */}
+                  <motion.div
+                    initial={{ scale: 0, rotate: -180 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ delay: index * 0.15 + 0.3, type: "spring", stiffness: 200 }}
+                    className="absolute top-0 right-0 flex items-center justify-center w-20 h-20 bg-white/30 backdrop-blur-md rounded-full shadow-xl"
+                  >
                   <span className="text-4xl font-bold text-white">{step.number}</span>
                 </motion.div>
 
@@ -106,8 +104,7 @@ export default function WorkflowProcess() {
                   {/* Bottom decoration line */}
                   <motion.div
                     initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true }}
+                    animate={{ scaleX: 1 }}
                     transition={{ delay: index * 0.15 + 0.5, duration: 0.8 }}
                     className="mt-8 h-1 bg-white/40 rounded-full mx-auto"
                     style={{ width: "50%" }}
@@ -124,8 +121,7 @@ export default function WorkflowProcess() {
           {index < steps.length - 1 && (
             <motion.div
               initial={{ opacity: 0, scaleY: 0 }}
-              whileInView={{ opacity: 1, scaleY: 1 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, scaleY: 1 }}
               transition={{ delay: index * 0.15 + 0.6, duration: 0.4 }}
               className="flex justify-center py-4"
             >

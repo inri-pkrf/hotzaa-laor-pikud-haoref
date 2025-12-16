@@ -62,12 +62,11 @@ export default function ProductCard({ product, categoryColor, index }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="h-full"
-    >
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        className="h-full"
+      >
       <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500 group bg-white h-full flex flex-col border-0 shadow-lg" style={{ height: "550px" }}>
         {/* Image Section with Carousel */}
         <div className="relative overflow-hidden" style={{ height: "280px" }}>
