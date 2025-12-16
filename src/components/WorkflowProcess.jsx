@@ -19,8 +19,8 @@ const steps = [
   },
   {
     number: "03",
-    title: "אישור תקציב + התחלת עבודה",
-    subtitle: "אישור סופי והעברה לייצור",
+    title: "אישור תקציב יחידתי + תחילת עבודה",
+    subtitle: "",
     icon: CheckCircle,
     gradient: "from-green-500 to-emerald-600",
   },
