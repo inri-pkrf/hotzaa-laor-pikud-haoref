@@ -1,11 +1,10 @@
-
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, MessageCircle, Clock, Info } from "lucide-react";
+import { MapPin, MessageCircle, Clock, Info } from "lucide-react";
 
 export default function Contact() {
   const handleWhatsApp = () => {
-    window.open('https://wa.me/972501234567', '_blank');
+    window.open('https://wa.me/972529322925', '_blank');
   };
 
   return (
@@ -36,7 +35,7 @@ export default function Contact() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Contact Methods */}
-          <div className="grid md:grid-cols-4 gap-8 mb-20">
+          <div className="grid md:grid-cols-2 gap-8 mb-20 max-w-3xl mx-auto">
             {/* WhatsApp */}
             <motion.button
               onClick={handleWhatsApp}
@@ -50,43 +49,15 @@ export default function Contact() {
                 <MessageCircle className="w-12 h-12 text-[#25D366] transition-transform group-hover:scale-110" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">ווטסאפ</h3>
-              <p className="text-gray-600 text-sm" dir="ltr">050-123-4567</p>
+              <p className="text-gray-600 text-sm" dir="ltr">052-932-2925</p>
               <p className="text-xs text-[#25D366] font-medium mt-2">לחצו לשיחה</p>
             </motion.button>
-
-            {/* Phone */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-center"
-            >
-              <div className="mb-4 flex justify-center">
-                <Phone className="w-12 h-12 text-[rgb(0,88,131)]" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">טלפון</h3>
-              <p className="text-gray-600 text-sm" dir="ltr">050-123-4567</p>
-            </motion.div>
-
-            {/* Email */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-center"
-            >
-              <div className="mb-4 flex justify-center">
-                <Mail className="w-12 h-12 text-[rgb(0,88,131)]" />
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">אימייל</h3>
-              <p className="text-gray-600 text-sm">info@example.co.il</p>
-            </motion.div>
 
             {/* Address */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.2 }}
               className="text-center"
             >
               <div className="mb-4 flex justify-center">
