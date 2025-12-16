@@ -205,7 +205,7 @@ export default function Home() {
                 className="pt-4"
               >
                 <motion.button
-                  onClick={() => window.open('https://wa.me/972501234567', '_blank')}
+                  onClick={() => window.open('https://wa.me/972529322925', '_blank')}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="inline-flex items-center gap-3 bg-[#25D366] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#20BD5A] transform transition-all duration-200 shadow-[0_8px_30px_rgb(37,211,102,0.4)] hover:shadow-[0_12px_40px_rgb(37,211,102,0.5)]"

@@ -61,7 +61,7 @@ export default function Layout({ children, currentPageName }) {
   };
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/972501234567', '_blank');
+    window.open('https://wa.me/972529322925', '_blank');
   };
 
   const isHomePage = currentPageName === "Home";

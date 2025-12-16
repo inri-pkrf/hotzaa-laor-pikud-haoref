@@ -43,7 +43,7 @@ export default function ProductCard({ product, categoryColor, index }) {
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(`שלום, אני מעוניין להזמין את המוצר: ${product.title}${product.code ? ` (קוד: ${product.code})` : ''}`);
-    window.open(`https://wa.me/972501234567?text=${message}`, '_blank');
+    window.open(`https://wa.me/972529322925?text=${message}`, '_blank');
   };
 
   // Helper function to lighten/darken color
