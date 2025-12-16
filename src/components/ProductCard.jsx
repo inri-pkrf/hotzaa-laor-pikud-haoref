@@ -82,7 +82,7 @@ export default function ProductCard({ product, categoryColor, index }) {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain bg-white"
               />
             </AnimatePresence>
 
