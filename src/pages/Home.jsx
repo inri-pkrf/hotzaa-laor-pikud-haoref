@@ -293,15 +293,15 @@ export default function Home() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, delay: index * 0.03 }}
                 whileHover={{ scale: 1.1, zIndex: 10 }}
-                className="relative group overflow-hidden rounded-full aspect-square shadow-xl"
+                className="relative group overflow-hidden rounded-full aspect-square shadow-xl bg-white"
               >
                 <img
                   src={url}
                   alt={`עבודה ${index + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
-                
+
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="text-white font-semibold text-sm drop-shadow-lg">
                     {index + 1}
