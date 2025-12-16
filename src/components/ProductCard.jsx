@@ -305,27 +305,16 @@ export default function ProductCard({ product, categoryColor, index }) {
 
           {/* Price Section */}
           {product.price_info && (
-            <div className="relative overflow-hidden rounded-xl p-3 mt-auto">
-              {/* Animated Background with Category Color Gradient */}
-              <div 
-                className="absolute inset-0"
-                style={{ 
-                  background: `linear-gradient(135deg, ${gradientStart}, ${gradientEnd})` 
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
-              
-              {/* Content */}
-              <div className="relative z-10">
-                <p className="text-xs text-white/90 text-center mb-0.5 font-medium">מחיר ליחידה</p>
-                <p className="text-lg font-bold text-white text-center drop-shadow-lg">
-                  {product.price_info}
-                </p>
-              </div>
-
-              {/* Decorative circles */}
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-white/10 rounded-full blur-xl" />
-              <div className="absolute -bottom-4 -left-4 w-20 h-20 bg-white/10 rounded-full blur-xl" />
+            <div 
+              className="rounded-xl p-3 mt-auto border-2"
+              style={{ 
+                borderColor: categoryColor
+              }}
+            >
+              <p className="text-xs text-center mb-0.5 font-medium" style={{ color: categoryColor }}>מחיר ליחידה</p>
+              <p className="text-lg font-bold text-center" style={{ color: categoryColor }}>
+                {product.price_info}
+              </p>
             </div>
           )}
 
