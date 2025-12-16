@@ -13,7 +13,7 @@ const steps = [
   {
     number: "02",
     title: "קבלת הצעת מחיר מבית הדפוס",
-    subtitle: "תוך 48 שעות",
+    subtitle: "",
     icon: DollarSign,
     gradient: "from-purple-500 to-pink-600",
   },
