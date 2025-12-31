@@ -169,11 +169,11 @@ export default function Layout({ children, currentPageName }) {
               </button>
             </div>
 
-            {/* Left Logo - הוצאה לאור פיקוד העורף */}
+            {/* Left Logo - הוצאה לאור */}
             <button onClick={() => handleNavigation("Home")} className="flex items-center cursor-pointer">
               <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/7e720f8b9_image.png"
-                alt="הוצאה לאור פיקוד העורף"
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/977407d91_-.png"
+                alt="לוגו הוצאה לאור"
                 className="h-16 w-auto"
               />
             </button>
@@ -305,8 +305,8 @@ export default function Layout({ children, currentPageName }) {
             <div className="flex flex-col items-center gap-6">
               {/* Logo */}
               <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/7e720f8b9_image.png"
-                alt="הוצאה לאור פיקוד העורף"
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/977407d91_-.png"
+                alt="לוגו הוצאה לאור"
                 className="h-20 w-auto"
               />
               
