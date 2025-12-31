@@ -1,13 +1,13 @@
-import Home from './pages/Home';
-import Contact from './pages/Contact';
 import Category from './pages/Category';
+import Contact from './pages/Contact';
+import Home from './pages/Home';
 import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
-    "Home": Home,
-    "Contact": Contact,
     "Category": Category,
+    "Contact": Contact,
+    "Home": Home,
 }
 
 export const pagesConfig = {
