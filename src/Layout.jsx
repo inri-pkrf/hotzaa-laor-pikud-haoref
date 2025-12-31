@@ -40,6 +40,37 @@ export default function Layout({ children, currentPageName }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Set meta tags for social media sharing
+    const metaTags = [
+      { property: 'og:title', content: 'הוצאה לאור פיקוד העורף' },
+      { property: 'og:description', content: 'בית הדפוס וההוצאה לאור בשבילך' },
+      { property: 'og:image', content: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/cce56161a_image.png' },
+      { property: 'og:type', content: 'website' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: 'הוצאה לאור פיקוד העורף' },
+      { name: 'twitter:description', content: 'בית הדפוס וההוצאה לאור בשבילך' },
+      { name: 'twitter:image', content: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690c743101e01f1e1a93321d/cce56161a_image.png' }
+    ];
+
+    metaTags.forEach(tag => {
+      let element = document.querySelector(`meta[${tag.property ? 'property' : 'name'}="${tag.property || tag.name}"]`);
+      if (!element) {
+        element = document.createElement('meta');
+        if (tag.property) {
+          element.setAttribute('property', tag.property);
+        } else {
+          element.setAttribute('name', tag.name);
+        }
+        document.head.appendChild(element);
+      }
+      element.setAttribute('content', tag.content);
+    });
+
+    // Set page title
+    document.title = 'הוצאה לאור פיקוד העורף';
+  }, []);
+
   const handleNavigation = (page, section) => {
     setIsMobileMenuOpen(false);
     
